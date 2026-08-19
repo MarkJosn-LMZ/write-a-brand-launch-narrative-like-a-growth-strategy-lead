@@ -1,0 +1,1158 @@
+<!doctype html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PetiLoop 展会品牌与产品宣传册</title>
+  <style>
+    /* ===========================================================
+       Deck framework — DO NOT EDIT the rules in this <style> block.
+       Edit only inside the second <style> block below (per-deck
+       styles) and inside <section class="slide"> bodies.
+
+       Contract this framework provides:
+         - 1920×1080 fixed canvas, scaled to fit the viewport
+         - Only .slide.active is visible at a time
+         - Programmatic prev/next + counter elements kept outside the scaled
+           stage but hidden by default so the host can render the UI chrome
+         - Keyboard (← → space PgUp PgDn Home End R), half-slide click, and stored
+           position survive iframe focus quirks
+         - "Save as PDF" produces a multi-page vertical PDF, one slide
+           per page, by toggling every slide visible under @media print
+       =========================================================== */
+    :root {
+      /* SLOT: theme tokens — the only top-level CSS the agent edits.
+         Add or override --bg / --fg / --accent / etc. here. */
+      --bg: oklch(0.985 0.002 250);
+      --fg: oklch(0.20 0.01 270);
+      --muted: oklch(0.56 0.01 270);
+      --accent: oklch(0.657858 0.230920 17.074);
+      --surface: oklch(1 0 0);
+      --border: oklch(0.93 0.004 250);
+      --surface-2: oklch(0.955 0.004 250);
+      --display-font: "Airbnb Cereal VF", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      --body-font: "Geist Variable", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      --mono-font: "JetBrains Mono", "SF Mono", Menlo, Monaco, Consolas, monospace;
+      --shell: oklch(0.12 0.01 270);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: var(--shell);
+      color: var(--fg);
+      font: 18px/1.5 -apple-system, system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .deck-shell {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+    }
+    .deck-stage {
+      width: 1920px;
+      height: 1080px;
+      background: var(--bg);
+      position: relative;
+      transform-origin: top left;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+    }
+    .slide {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+    /* Visibility toggle hardened with :not(.active) + !important so cascade
+       order can't break it. The previous `.slide { display:none }` rule
+       lost the cascade whenever a per-slide variant class (e.g.
+       `.s-cold { display:grid }`) was declared after it on the same
+       element — every slide silently became visible at once. The
+       `!important` is a belt-and-suspenders against agent code that adds
+       `!important` on variant classes too. */
+    .slide:not(.active) { display: none !important; }
+    /* The active default uses :where() so it has zero specificity. Per-slide
+       variant classes like `.s-cold { display:grid }` or
+       `.s-magazine { display:block }` can override the default flex layout
+       just by declaring `display` — no need for the variant to be more
+       specific. The hide rule above still wins for inactive slides. */
+    :where(.slide.active) { display: flex; flex-direction: column; }
+
+    /* Programmatic chrome — counter + prev/next live outside the scaled
+       stage so the host bridge can read/update them, but they stay hidden
+       in preview, presentation, fullscreen, and new-tab modes. */
+    .deck-counter {
+      position: fixed;
+      bottom: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: none;
+      align-items: center;
+      gap: 4px;
+      background: rgba(10, 14, 26, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #fff;
+      font: 12px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: 0.18em;
+      z-index: 1000;
+    }
+    .deck-counter button {
+      width: 36px; height: 36px;
+      background: transparent;
+      color: #fff;
+      border: 0;
+      border-radius: 50%;
+      font-size: 18px;
+      line-height: 1;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: background 0.15s;
+    }
+    .deck-counter button:hover { background: rgba(255, 255, 255, 0.12); }
+    .deck-counter button[disabled] { opacity: 0.3; cursor: default; }
+    .deck-counter .deck-count {
+      padding: 0 14px;
+      letter-spacing: 0.22em;
+    }
+    .deck-counter .deck-count .total { color: rgba(255, 255, 255, 0.5); }
+    .deck-hint {
+      position: fixed;
+      bottom: 26px;
+      right: 28px;
+      color: rgba(255, 255, 255, 0.4);
+      font: 11px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      z-index: 999;
+      pointer-events: none;
+      display: none;
+    }
+
+    /* Print / PDF stitching — every slide stacks top-to-bottom, one per
+       page. The viewer's "Share → PDF" relies on this; do not remove. */
+    @media print {
+      @page { size: 1920px 1080px; margin: 0; }
+      html, body {
+        width: 1920px !important;
+        height: auto !important;
+        overflow: visible !important;
+        background: #fff !important;
+      }
+      .deck-shell {
+        position: static !important;
+        display: block !important;
+        inset: auto !important;
+      }
+      .deck-stage {
+        width: 1920px !important;
+        height: auto !important;
+        transform: none !important;
+        box-shadow: none !important;
+        position: static !important;
+      }
+      .slide {
+        display: flex !important;
+        position: relative !important;
+        inset: auto !important;
+        width: 1920px !important;
+        height: 1080px !important;
+        page-break-after: always;
+        break-after: page;
+      }
+      .slide:not(.active) { display: flex !important; }
+      .slide:last-child { page-break-after: auto; break-after: auto; }
+      .deck-counter, .deck-hint { display: none !important; }
+    }
+  </style>
+  <style>
+    /* SLOT: per-deck styles — typography, layout helpers, slide variants. */
+    .s {
+      display: block;
+      padding: 88px 104px 72px;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--body-font);
+    }
+    .s-dark { background: var(--fg); color: var(--surface); }
+    .s-photo { padding: 0; }
+    .topline {
+      position: absolute;
+      top: 42px;
+      left: 104px;
+      right: 104px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 10;
+      color: currentColor;
+      font: 600 16px/1 var(--mono-font);
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+    .topline::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 34px;
+      height: 1px;
+      background: color-mix(in oklch, currentColor 16%, transparent);
+    }
+    .page-no { color: oklch(0.43 0.17 17.074); }
+    .s-dark .page-no { color: var(--accent); }
+    .eyebrow {
+      font: 650 16px/1 var(--mono-font);
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+    .s-dark .eyebrow { color: color-mix(in oklch, var(--surface) 64%, transparent); }
+    .display, .title, .subhead {
+      font-family: var(--display-font);
+      font-weight: 700;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+    .display { font-size: 108px; line-height: 1.32; }
+    .title { font-size: 72px; line-height: 1.34; }
+    .subhead { font-size: 42px; line-height: 1.35; }
+    .lede {
+      margin-top: 24px;
+      max-width: 55ch;
+      color: var(--muted);
+      font-size: 27px;
+      line-height: 1.72;
+    }
+    .s-dark .lede { color: color-mix(in oklch, var(--surface) 72%, transparent); }
+    .body { font-size: 22px; line-height: 1.74; color: var(--muted); }
+    .s-dark .body { color: color-mix(in oklch, var(--surface) 72%, transparent); }
+    .accent { color: var(--accent); }
+    .rule { height: 1px; background: var(--border); }
+    .meta {
+      font: 600 16px/1.3 var(--mono-font);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .slide-head { margin-top: 68px; max-width: 1500px; }
+    .media {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+    .media-frame {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+    }
+    .caption {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.55;
+    }
+    .label {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--fg);
+      font: 600 16px/1 var(--body-font);
+      letter-spacing: .02em;
+    }
+    .cover-photo { position: absolute; inset: 0; }
+    .cover-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, oklch(0.12 0.01 270 / .78) 0%, oklch(0.12 0.01 270 / .44) 40%, transparent 74%);
+    }
+    .cover-logo {
+      position: absolute;
+      left: 96px;
+      top: 70px;
+      width: 184px;
+      filter: invert(1);
+      z-index: 4;
+    }
+    .cover-copy {
+      position: absolute;
+      left: 96px;
+      top: 248px;
+      width: 920px;
+      color: white;
+      z-index: 4;
+    }
+    .cover-copy .display { font-size: 108px; }
+    .cover-copy .lede { color: oklch(1 0 0 / .82); width: 720px; }
+    .cover-kicker {
+      font: 650 16px/1 var(--mono-font);
+      letter-spacing: .11em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .cover-foot {
+      position: absolute;
+      left: 96px;
+      right: 96px;
+      bottom: 66px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      z-index: 4;
+      font: 600 16px/1 var(--mono-font);
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+    .cover-foot a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .statement-grid {
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1.12fr .88fr;
+      gap: 104px;
+      align-items: center;
+    }
+    .statement-mark {
+      font-family: var(--display-font);
+      font-size: 440px;
+      line-height: .8;
+      color: var(--accent);
+      transform: translateY(-12px);
+    }
+    .pain-grid {
+      margin-top: 42px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+    }
+    .pain-item { min-width: 0; }
+    .pain-visual {
+      height: 238px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+    }
+    .pain-visual img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+    .pain-copy { margin-top: 18px; padding-top: 18px; border-top: 2px solid var(--fg); }
+    .pain-title-row { display: flex; align-items: baseline; gap: 16px; }
+    .pain-item .num { color: var(--muted); flex: 0 0 auto; }
+    .pain-item h3 { font: 700 30px/1.35 var(--display-font); }
+    .pain-item p { margin-top: 12px; font-size: 22px; line-height: 1.6; color: var(--muted); }
+    .profile-layout {
+      margin-top: 64px;
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 62px;
+      height: 620px;
+    }
+    .profile-list { display: grid; grid-template-rows: repeat(4, 1fr); }
+    .profile-row {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 26px;
+      align-items: center;
+      border-top: 1px solid var(--border);
+    }
+    .profile-row:last-child { border-bottom: 1px solid var(--border); }
+    .profile-row strong { font-size: 27px; }
+    .profile-row span { color: var(--muted); font-size: 22px; line-height: 1.5; }
+    .identity-grid {
+      margin-top: 100px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 96px;
+      align-items: end;
+    }
+    .identity-logo { width: 430px; }
+    .identity-lines { border-top: 1px solid var(--border); }
+    .identity-line {
+      display: grid;
+      grid-template-columns: 168px 1fr;
+      gap: 24px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: baseline;
+    }
+    .identity-line b { font-size: 18px; color: var(--muted); }
+    .identity-line span { font: 700 32px/1.5 var(--display-font); }
+    .founder-grid {
+      margin-top: 36px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .founder {
+      min-height: 0;
+      padding: 36px 52px 64px;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid var(--border);
+    }
+    .founder:last-child { border-right: 0; }
+    .founder-photo {
+      width: 200px;
+      height: 200px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface-2);
+      flex: 0 0 auto;
+    }
+    .founder-photo img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: 50% 18%;
+    }
+    .founder-photo-mingzhe img { object-position: 50% 46%; }
+    .founder-mark {
+      font-family: var(--display-font);
+      font-weight: 700;
+      font-size: 56px;
+      line-height: 1;
+      color: var(--accent);
+    }
+    .founder:last-child .founder-mark { color: var(--fg); }
+    .founder h3 { margin-top: 22px; font: 700 44px/1.2 var(--display-font); }
+    .founder .job {
+      margin-top: 10px;
+      font: 650 16px/1 var(--mono-font);
+      letter-spacing: .08em;
+      color: var(--muted);
+    }
+    .founder-bio {
+      margin-top: 26px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .founder-bio p {
+      min-width: 0;
+      font-size: 20px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+    .founder-bio p + p {
+      margin-top: 0;
+      padding-left: 28px;
+      border-left: 1px solid var(--border);
+    }
+    .product-stack { margin-top: 56px; border-top: 1px solid var(--border); }
+    .product-row {
+      display: grid;
+      grid-template-columns: 110px 320px 220px 1fr;
+      gap: 28px;
+      align-items: center;
+      min-height: 126px;
+      border-bottom: 1px solid var(--border);
+    }
+    .product-row .ord { font: 650 16px/1 var(--mono-font); color: var(--muted); }
+    .product-row h3 { font: 700 32px/1.35 var(--display-font); }
+    .product-row .en { font: 600 16px/1 var(--mono-font); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+    .product-row p { font-size: 22px; line-height: 1.55; color: var(--muted); }
+    .split {
+      margin-top: 76px;
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 64px;
+      height: 650px;
+      align-items: stretch;
+    }
+    .split.reverse { grid-template-columns: 1fr 1fr; }
+    .split-copy { display: flex; flex-direction: column; justify-content: center; }
+    [data-od-id="slide-artist-product"].s {
+      padding: 88px 104px 0 0;
+    }
+    [data-od-id="slide-artist-product"] .split {
+      margin-top: 52px;
+      grid-template-columns: 1.16fr 0.84fr;
+      gap: 0;
+      height: 940px;
+      align-items: stretch;
+    }
+    [data-od-id="slide-artist-product"] .media-frame {
+      height: 100%;
+      border: 0;
+      border-radius: 0;
+      background: oklch(0.16 0.01 270);
+    }
+    [data-od-id="slide-artist-product"] .workspace-shot {
+      object-fit: cover;
+      object-position: 12% 50%;
+    }
+    [data-od-id="slide-artist-product"] .split-copy {
+      justify-content: space-between;
+      padding: 36px 0 72px 72px;
+    }
+    [data-od-id="slide-artist-product"] .title {
+      font-size: 72px;
+      line-height: 1.18;
+      max-width: 7.2em;
+    }
+    [data-od-id="slide-artist-product"] .lede {
+      max-width: 22ch;
+    }
+    [data-od-id="slide-artist-product"] .feature-list {
+      margin-top: 0;
+    }
+    .feature-list { margin-top: 32px; border-top: 1px solid var(--border); }
+    .feature-item {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 18px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 22px;
+      line-height: 1.5;
+    }
+    .feature-item b { color: var(--muted); font-family: var(--mono-font); }
+    .workspace-shot { object-fit: contain; object-position: top center; }
+    .prompt-panel {
+      margin-top: 54px;
+      display: grid;
+      grid-template-columns: .86fr 1.14fr;
+      gap: 70px;
+      align-items: stretch;
+      height: 620px;
+    }
+    .prompt {
+      border-radius: 12px;
+      background: var(--fg);
+      color: white;
+      padding: 54px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .prompt .quote { font: 700 42px/1.45 var(--display-font); }
+    .deliverable-list { border-top: 1px solid var(--border); }
+    .deliverable {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 24px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .deliverable b { font: 650 16px/1 var(--mono-font); color: var(--muted); }
+    .deliverable strong { display: block; font-size: 32px; margin-bottom: 8px; }
+    .deliverable span { color: var(--muted); font-size: 22px; }
+    .gallery-full { position: absolute; inset: 0; }
+    .gallery-caption {
+      position: absolute;
+      left: 92px;
+      bottom: 72px;
+      width: 620px;
+      padding: 36px 40px;
+      border-radius: 12px;
+      background: oklch(1 0 0 / .93);
+      backdrop-filter: blur(14px);
+      color: var(--fg);
+      z-index: 4;
+      box-shadow: 0 18px 50px oklch(0.12 0.01 270 / .16);
+    }
+    .gallery-caption h2 { font: 700 42px/1.35 var(--display-font); }
+    .gallery-caption p { margin-top: 14px; font-size: 22px; line-height: 1.6; color: var(--muted); }
+    .process {
+      margin-top: 62px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .process-step { min-height: 270px; padding: 34px 30px; border-right: 1px solid var(--border); }
+    .process-step:last-child { border-right: 0; }
+    .process-step b { font: 650 16px/1 var(--mono-font); color: var(--muted); }
+    .process-step h3 { margin-top: 74px; font: 700 32px/1.35 var(--display-font); }
+    .process-step p { margin-top: 14px; color: var(--muted); font-size: 22px; line-height: 1.55; }
+    .forge-path { margin-top: 84px; display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .forge-path .process-step { min-height: 300px; }
+    .scene-band {
+      margin-top: 44px;
+      height: 316px;
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 34px;
+    }
+    .scene-note { padding: 40px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
+    .scene-note strong { font: 700 42px/1.4 var(--display-font); }
+    .scene-note p { margin-top: 18px; color: var(--muted); font-size: 22px; line-height: 1.6; }
+    .scenario-list { margin-top: 58px; border-top: 1px solid var(--border); }
+    .scenario-row {
+      display: grid;
+      grid-template-columns: 260px 310px 1fr 180px;
+      gap: 28px;
+      align-items: center;
+      min-height: 145px;
+      border-bottom: 1px solid var(--border);
+    }
+    .scenario-row .type { color: var(--muted); font-size: 18px; }
+    .scenario-row h3 { font: 700 32px/1.35 var(--display-font); }
+    .scenario-row p { color: var(--muted); font-size: 22px; line-height: 1.5; }
+    .scenario-row .start { font: 650 16px/1 var(--mono-font); letter-spacing: .04em; text-align: right; }
+
+    .price-save-band {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 34px;
+    }
+    .price-save-band .scene-note strong { display: block; margin-top: 20px; }
+    .price-save-band .scene-note .accent { color: var(--accent); }
+    [data-od-id="slide-pricing"] .product-stack { margin-top: 48px; }
+    [data-od-id="slide-pricing"] .product-row { min-height: 108px; }
+    [data-od-id="slide-pricing"] .product-row p strong {
+      font: 700 32px/1 var(--display-font);
+      color: var(--fg);
+    }
+    .price-tag {
+      margin-left: 20px;
+      font: 650 16px/1 var(--mono-font);
+      letter-spacing: .08em;
+      color: var(--accent);
+    }
+    .price-note {
+      margin-top: 28px;
+      max-width: none;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.5;
+      white-space: nowrap;
+    }
+    .price-note strong {
+      font: 650 16px/1.5 var(--mono-font);
+      letter-spacing: .02em;
+      color: var(--fg);
+    }
+    .proof-grid { margin-top: 92px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 52px; }
+    .proof { border-top: 2px solid var(--surface); padding-top: 30px; }
+    .proof .word { font: 700 108px/1.2 var(--display-font); color: var(--surface); }
+    .proof:first-child .word { color: var(--accent); }
+    .proof h3 { margin-top: 36px; font: 700 32px/1.35 var(--display-font); }
+    .proof p { margin-top: 16px; font-size: 22px; line-height: 1.62; color: oklch(1 0 0 / .70); }
+    .voice-grid { margin-top: 78px; display: grid; grid-template-columns: repeat(3, 1fr); }
+    .voice { min-height: 590px; padding: 42px 42px 36px; border-top: 1px solid var(--border); border-right: 1px solid var(--border); display: flex; flex-direction: column; }
+    .voice:first-child { border-left: 1px solid var(--border); }
+    .voice q { font: 700 32px/1.58 var(--display-font); quotes: "“" "”"; }
+    .voice .who { margin-top: auto; padding-top: 32px; border-top: 1px solid var(--border); color: var(--muted); font-size: 18px; line-height: 1.5; }
+    .closing { display: grid; place-items: center; text-align: center; }
+    .closing-logo { width: 260px; margin-bottom: 52px; }
+    .closing .display { font-size: 108px; max-width: 1320px; }
+    .closing .lede { margin-left: auto; margin-right: auto; }
+    .cta {
+      margin-top: 46px;
+      display: inline-flex;
+      min-width: 330px;
+      min-height: 64px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      font: 700 22px/1 var(--body-font);
+      letter-spacing: .02em;
+      transition: background .18s ease, transform .18s ease;
+    }
+    .cta:hover { background: oklch(0.59 0.23 17.074); color: white; transform: translateY(-2px); }
+    .cta:active { background: oklch(0.54 0.22 17.074); color: white; transform: translateY(0); }
+    .cta:focus-visible { outline: 4px solid oklch(0.78 0.14 17.074); outline-offset: 5px; }
+    .closing-foot { position: absolute; bottom: 52px; left: 104px; right: 104px; display: flex; justify-content: space-between; color: var(--muted); font: 600 16px/1 var(--mono-font); letter-spacing: .08em; text-transform: uppercase; }
+  </style>
+</head>
+<body>
+  <div class="deck-shell">
+    <div class="deck-stage" id="deck-stage">
+      <section class="slide active s s-photo" data-screen-label="01 封面" data-od-id="slide-cover">
+        <div class="cover-photo" data-od-id="cover-image">
+          <img class="media" src="assets/petiloop-home-hero.webp" alt="宠物内容团队在工作室复盘内容与账号数据，桌边有一只柴犬">
+        </div>
+        <img class="cover-logo" src="assets/petiloop-logo-black.png" alt="PetiLoop 佩乐窝" data-od-id="cover-logo">
+        <div class="cover-copy" data-od-id="cover-copy">
+          <div class="cover-kicker">佩乐窝 · 宠物行业 AI 整体解决方案</div>
+          <h1 class="display" data-od-id="cover-title">懂宠物的 AI，<br>把下一步做出来</h1>
+          <p class="lede" data-od-id="cover-subtitle">把经营判断、内容增长、视觉产出与用户研究放进同一张工作台，让一个人也能推进一整支团队的工作。</p>
+        </div>
+        <div class="cover-foot"><a href="https://www.petiloop.com/">www.petiloop.com</a><span>品牌与产品手册 · 2026</span></div>
+      </section>
+
+      <section class="slide s" data-screen-label="02 品牌主张" data-od-id="slide-brand-promise">
+        <div class="topline"><span>PetiLoop · Brand Promise</span><span class="page-no">02 / 23</span></div>
+        <div class="statement-grid">
+          <div class="statement-mark" aria-hidden="true">“</div>
+          <div data-od-id="brand-promise-copy">
+            <div class="eyebrow">我们相信</div>
+            <h2 class="display" data-od-id="brand-promise-title">一个人，<br>也该拥有一支<br>懂行的团队</h2>
+            <p class="lede">佩乐窝把宠物行业经验变成日常可用的工作能力：不用研究提示词，不用在多套工具之间来回搬运。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide s" data-screen-label="03 真实工作压力" data-od-id="slide-daily-pressure">
+        <div class="topline"><span>01 · Why Now</span><span class="page-no">03 / 23</span></div>
+        <header class="slide-head">
+          <div class="eyebrow">宠物生意的真实一天</div>
+          <h2 class="title" data-od-id="daily-pressure-title">真正的难题，不是缺一个工具</h2>
+          <p class="lede">而是同一天里，经营、内容、视觉与用户反馈都要有人推进。</p>
+        </header>
+        <div class="pain-grid" data-od-id="daily-pressure-grid">
+          <article class="pain-item" data-od-id="pain-item-people">
+            <figure class="pain-visual" data-od-id="pain-image-people"><img src="宠物店经营者缺人困境纪实摄影.png" alt="宠物店经营者一边接电话，一边打包订单和处理门店工作" style="object-position:48% 48%"></figure>
+            <div class="pain-copy"><div class="pain-title-row"><div class="meta num">01</div><h3>缺人</h3></div><p>一个人包办经营、客服、内容与设计。</p></div>
+          </article>
+          <article class="pain-item" data-od-id="pain-item-expertise">
+            <figure class="pain-visual" data-od-id="pain-image-expertise"><img src="Image-3.png" alt="宠物行业经营者看着电脑结果，因无法解决实际问题而苦恼" style="object-position:52% 45%"></figure>
+            <div class="pain-copy"><div class="pain-title-row"><div class="meta num">02</div><h3>缺专业能力</h3></div><p>懂宠物，却不一定懂增长与视觉表达。</p></div>
+          </article>
+          <article class="pain-item" data-od-id="pain-item-fragmentation">
+            <figure class="pain-visual" data-od-id="pain-image-fragmentation"><img src="Image-1.png" alt="宠物行业经营者面对多份素材和工作设备感到无从下手" style="object-position:42% 50%"></figure>
+            <div class="pain-copy"><div class="pain-title-row"><div class="meta num">03</div><h3>工具太碎</h3></div><p>素材和成稿散落各处，只能反复搬运。</p></div>
+          </article>
+          <article class="pain-item" data-od-id="pain-item-industry">
+            <figure class="pain-visual" data-od-id="pain-image-industry"><img src="Image-2.png" alt="宠物店经营者在电脑和业务资料之间反复确认信息" style="object-position:44% 47%"></figure>
+            <div class="pain-copy"><div class="pain-title-row"><div class="meta num">04</div><h3>通用 AI 不懂行</h3></div><p>答案看似完整，却难以用于真实业务。</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="slide s" data-screen-label="04 为谁而做" data-od-id="slide-audience">
+        <div class="topline"><span>01 · For Whom</span><span class="page-no">04 / 23</span></div>
+        <header class="slide-head">
+          <div class="eyebrow">为一人公司与小团队而做</div>
+          <h2 class="title" data-od-id="audience-title">你的规模可以很小，目标不必变小</h2>
+        </header>
+        <div class="profile-layout">
+          <figure class="media-frame" data-od-id="audience-image"><img class="media" src="assets/pet-store-owner-scene.png" alt="宠物门店主在柜台使用电脑接待带宠顾客"></figure>
+          <div class="profile-list" data-od-id="audience-list">
+            <div class="profile-row" data-od-id="audience-store"><strong>宠物门店</strong><span>经营诊断、获客复购、开业传播与本地内容</span></div>
+            <div class="profile-row" data-od-id="audience-brand"><strong>宠物品牌</strong><span>商品图、详情页、种草内容与新品首发</span></div>
+            <div class="profile-row" data-od-id="audience-creator"><strong>内容创作者</strong><span>爆款拆解、选题共创、配图与账号复盘</span></div>
+            <div class="profile-row" data-od-id="audience-clinic"><strong>医院与机构</strong><span>专业科普、用户洞察、品牌信任与客户教育</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide s" data-screen-label="05 我们是谁" data-od-id="slide-who-we-are">
+        <div class="topline"><span>02 · Who We Are</span><span class="page-no">05 / 23</span></div>
+        <header class="slide-head">
+          <div class="eyebrow">佩乐窝系列 · PetiLoop Series</div>
+          <h2 class="title" data-od-id="who-we-are-title">把“懂行的经验”，<br>变成每一天都能用的能力</h2>
+        </header>
+        <div class="identity-grid">
+          <div><img class="identity-logo" src="assets/petiloop-logo-black.png" alt="PetiLoop 佩乐窝品牌标识" data-od-id="identity-logo"><p class="body" style="margin-top:38px;max-width:34ch;">面向宠物行业经营者的 AI 工作台。五条产品线已经上线，并围绕同一份业务材料协同工作。</p></div>
+          <div class="identity-lines" data-od-id="identity-principles">
+            <div class="identity-line"><b>使命</b><span>让宠物行业的每一个经营者，都能用上懂行的 AI。</span></div>
+            <div class="identity-line"><b>愿景</b><span>成为宠物行业最值得信赖的 AI 工作台。</span></div>
+            <div class="identity-line"><b>做事标准</b><span>懂行、可用、真诚；不做花哨概念，只做能继续执行的下一步。</span></div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="slide s" data-screen-label="06 创始成员" data-od-id="slide-founders">
+        <div class="topline"><span>02 · Founding Team</span><span class="page-no">06 / 23</span></div>
+        <header class="slide-head">
+          <div class="eyebrow">创始成员</div>
+          <h2 class="title" data-od-id="founders-title">一个做产品，一个扎在行业里</h2>
+          <p class="lede">产品技术一条线，行业现场一条线。引擎能迭代，获客和对接也有人盯着。</p>
+        </header>
+        <div class="founder-grid" data-od-id="founder-grid">
+          <article class="founder" data-od-id="founder-mingzhe">
+            <figure class="founder-photo founder-photo-mingzhe"><img src="assets/founder-mingzhe.png" alt="明哲"></figure>
+            <h3>明哲</h3>
+            <div class="job">创始人 / 技术负责人</div>
+            <div class="founder-bio">
+              <p>做过宠物健康应用，有 AI 产品架构和全栈工程经验。在佩乐窝负责技术路线：多智能体协同引擎怎么设计，五条产品线怎么真正跑在线上。</p>
+              <p>从架构到工程落地都经手。先保证经营者打开就能继续工作，再谈后面的迭代速度。</p>
+            </div>
+          </article>
+          <article class="founder" data-od-id="founder-jieshu">
+            <figure class="founder-photo"><img src="assets/founder-jieshu.png" alt="杰叔"></figure>
+            <h3>杰叔</h3>
+            <div class="job">联合创始人 / 市场与营销负责人</div>
+            <div class="founder-bio">
+              <p>宠物行业里待得久，长期做公益，对接过大量门店、独立品牌和一人公司。缺人、缺专业、工具太碎，这些不是调研结论，是走访里反复碰到的事。</p>
+              <p>在佩乐窝负责市场增长、品牌，以及把行业资源和真实经营场景接进产品。产品不能只在工位上自洽，得对着现场。</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="slide s" data-screen-label="07 五条产品线" data-od-id="slide-product-map">
+        <div class="topline"><span>02 · Product Map</span><span class="page-no">07 / 23</span></div>
+        <header class="slide-head">
+          <div class="eyebrow">五个产品，一次搞定</div>
+          <h2 class="title" data-od-id="product-map-title">你现在卡在哪，就从哪开始</h2>
+        </header>
+        <div class="product-stack" data-od-id="product-stack">
+          <div class="product-row" data-od-id="product-ai"><span class="ord">01</span><h3>佩乐窝 AI</h3><span class="en">PetiLoop AI</span><p>把门店、渠道或经营问题说清楚，和合适的行业专员一起拆出下一步。</p></div>
+          <div class="product-row" data-od-id="product-artist"><span class="ord">02</span><h3>佩乐窝 艺术家</h3><span class="en">Artist</span><p>把宠物商品和门店素材做成能发布的海报、商品图与短视频画面。</p></div>
+          <div class="product-row" data-od-id="product-viral"><span class="ord">03</span><h3>佩乐窝 增长</h3><span class="en">Viral</span><p>拆爆款、找选题、写草稿，再用账号数据判断下一篇怎么做。</p></div>
+          <div class="product-row" data-od-id="product-research"><span class="ord">04</span><h3>佩乐窝 调研</h3><span class="en">Research</span><p>先听清用户与专家怎么说，再把发现整理成团队能讨论的报告。</p></div>
+          <div class="product-row" data-od-id="product-forge"><span class="ord">05</span><h3>佩乐窝 赋能</h3><span class="en">Forge</span><p>陪企业从一段真实流程开始，把适合自己的 AI 工作方式落下来。</p></div>
+        </div>
+      </section>
+
+      <section class="slide s" data-screen-label="08 佩乐窝 AI" data-od-id="slide-ai-product">
+        <div class="topline"><span>03 · PetiLoop AI</span><span class="page-no">08 / 23</span></div>
+        <div class="split">
+          <div class="split-copy">
+            <div class="eyebrow">经营问题，不再一个人想</div>
+            <h2 class="title" data-od-id="ai-title">把问题说清楚，下一步就能继续</h2>
+            <p class="lede">经营、健康、门店与内容专员会围绕同一个问题协作，不只回答“是什么”，更把行动拆到今天能做。</p>
+            <div class="feature-list">
+              <div class="feature-item"><b>01</b><span>围绕真实宠物业务语境给出判断</span></div>
+              <div class="feature-item"><b>02</b><span>需要时邀请不同专员一起讨论</span></div>
+              <div class="feature-item"><b>03</b><span>把结论收口为可继续执行的步骤</span></div>
+            </div>
+          </div>
+          <figure class="media-frame" data-od-id="ai-workspace-image"><img class="media workspace-shot" src="_E4_BA_A7_E5_93_81_E7_95_8C_E9_9D_A2PPT_E5_B1_95_E7_A4_BA_E7_B2_BE_E4_BF_AE_986x648.png" alt="佩乐窝 AI 工作台真实界面"></figure>
+        </div>
+      </section>
+
+      <section class="slide s" data-screen-label="09 一次拿到完整下一步" data-od-id="slide-ai-output">
+        <div class="topline"><span>03 · One Brief, One Round</span><span class="page-no">09 / 23</span></div>
+        <header class="slide-head">
+          <div class="eyebrow">场景示例 · 门店推广洗护卡</div>
+          <h2 class="title" data-od-id="ai-output-title">一次说明，带走一套能落地的行动材料</h2>
+        </header>
+        <div class="prompt-panel">
+          <div class="prompt" data-od-id="ai-output-prompt"><div class="meta" style="color:oklch(1 0 0/.62);">门店主的一句话</div><div class="quote">“下个月想推洗护卡，帮我把方案、内容和店员话术一起理清。”</div><div class="meta" style="color:oklch(1 0 0/.62);">不需要先学会怎么写提示词</div></div>
+          <div class="deliverable-list" data-od-id="ai-output-list">
+            <div class="deliverable"><b>01</b><div><strong>推广主张</strong><span>先确定谁最需要、为什么现在值得买。</span></div></div>
+            <div class="deliverable"><b>02</b><div><strong>内容草稿</strong><span>小红书笔记、社群短文与门店海报用同一套表达。</span></div></div>
+            <div class="deliverable"><b>03</b><div><strong>店员问答</strong><span>把顾客常见疑问提前整理成可直接使用的话术。</span></div></div>
+            <div class="deliverable"><b>04</b><div><strong>执行清单</strong><span>明确先做什么、需要准备什么、如何判断下一轮。</span></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide s" data-screen-label="10 佩乐窝艺术家" data-od-id="slide-artist-product">
+        <div class="topline"><span>04 · PetiLoop Artist</span><span class="page-no">10 / 23</span></div>
+        <div class="split reverse">
+          <figure class="media-frame" data-od-id="artist-workspace-image"><img class="media workspace-shot" src="_E8_90_A5_E9_94_80_E7_B4_A0_E6_9D_90_E5_BA_93_E7_95_8C_E9_9D_A2PPT_E5_B1_95_E7_A4_BA_E7_B2_BE_E4_BF_AE_986x648.png" alt="佩乐窝艺术家工作台真实界面"></figure>
+          <div class="split-copy">
+            <div>
+              <div class="eyebrow">宠物视觉，不止是“生成一张图”</div>
+              <h2 class="title" data-od-id="artist-title">从商品素材，到<br>能发布的成片</h2>
+              <p class="lede">把商品图、标题、参考风格与平台尺寸放在同一次任务里，让初版更接近真正可用。</p>
+            </div>
+            <div class="feature-list">
+              <div class="feature-item"><b>01</b><span>商品上新：主图、场景图与详情页素材</span></div>
+              <div class="feature-item"><b>02</b><span>门店传播：活动海报、探店画面与短视频素材</span></div>
+              <div class="feature-item"><b>03</b><span>品牌起步：宠物形象、包装方向与视觉套系</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide s s-photo" data-screen-label="11 商品视觉成品" data-od-id="slide-product-effects">
+        <figure class="gallery-full"><img class="media" src="assets/pet-product-finished-effects.png" alt="宠物食品、营养补充剂与洗护喷雾的商业成品效果"></figure>
+        <div class="gallery-caption" data-od-id="product-effects-caption"><div class="eyebrow">Artist · 商品视觉</div><h2>一套素材，形成一组统一的商品表达</h2><p>商品主体、场景氛围与平台规格在同一轮里对齐，减少“漂亮但不能发”的返工。</p></div>
+      </section>
+
+      <section class="slide s s-photo" data-screen-label="12 活动传播成品" data-od-id="slide-campaign-effects">
+        <figure class="gallery-full"><img class="media" src="assets/pet-campaign-finished-effects.png" alt="猫咪健康、宠物洗护、门店开业和人宠生活方式四组传播成品"></figure>
+        <div class="gallery-caption" data-od-id="campaign-effects-caption"><div class="eyebrow">Artist · Campaign</div><h2>海报、门店场景与生活方式内容，共用一套品牌语气</h2><p>同一场活动可以自然延展成不同尺寸与不同触点的传播素材。</p></div>
+      </section>
+
+      <section class="slide s" data-screen-label="13 佩乐窝增长" data-od-id="slide-viral-product">
+        <div class="topline"><span>05 · PetiLoop Viral</span><span class="page-no">13 / 23</span></div>
+        <div class="split reverse">
+          <figure class="media-frame" data-od-id="viral-hero-image"><img class="media" src="_E6_96_87_E6_A1_88_E5_88_9B_E4_BD_9C_E7_95_8C_E9_9D_A2_822x648__E7_B2_BE_E7_A1_AE_E5_B1_85_E4_B8_AD.png" alt="宠物内容团队复盘小红书内容与账号数据"></figure>
+          <div class="split-copy">
+            <div class="eyebrow">内容增长</div>
+            <h2 class="title" data-od-id="viral-title">爆款拆完，下一篇直接开始写</h2>
+            <p class="lede">把同类宠物内容、账号后台数据和过去笔记放在一起，先找到问题，再把有效结构带进下一篇。</p>
+            <div class="feature-list">
+              <div class="feature-item"><b>01</b><span>看清选题、标题、封面与内容结构为什么有效</span></div>
+              <div class="feature-item"><b>02</b><span>把拆解结论带进选题清单与图文草稿</span></div>
+              <div class="feature-item"><b>03</b><span>用账号数据复盘下一阶段，而不是只看单篇表现</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide s" data-screen-label="14 内容增长路径" data-od-id="slide-viral-process">
+        <div class="topline"><span>05 · Content Loop</span><span class="page-no">14 / 23</span></div>
+        <header class="slide-head"><div class="eyebrow">从参考，到下一篇</div><h2 class="title" data-od-id="viral-process-title">不是多做内容，是把有效做法留下来</h2></header>
+        <div class="process" data-od-id="viral-process-grid">
+          <div class="process-step" data-od-id="viral-step-find"><b>01</b><h3>发现</h3><p>导入真实爆款与账号素材。</p></div>
+          <div class="process-step" data-od-id="viral-step-analyze"><b>02</b><h3>拆解</h3><p>看清选题、标题、封面与发布逻辑。</p></div>
+          <div class="process-step" data-od-id="viral-step-create"><b>03</b><h3>共创</h3><p>把方法带进选题和图文草稿。</p></div>
+          <div class="process-step" data-od-id="viral-step-review"><b>04</b><h3>复盘</h3><p>用后台数据决定下一轮动作。</p></div>
+        </div>
+        <div class="scene-band">
+          <figure class="media-frame"><img class="media" src="assets/pet-content-studio.png" alt="宠物内容团队在工作室审阅宠物商品和内容照片"></figure>
+          <div class="scene-note" data-od-id="viral-process-note"><strong>选题会后，直接进入制作</strong><p>参考、判断、草稿与视觉不再分散在四处；团队围绕同一份材料继续。</p></div>
+        </div>
+      </section>
+
+      <section class="slide s" data-screen-label="15 佩乐窝调研" data-od-id="slide-research-product">
+        <div class="topline"><span>06 · PetiLoop Research</span><span class="page-no">15 / 23</span></div>
+        <div class="split">
+          <div class="split-copy">
+            <div class="eyebrow">用户研究</div>
+            <h2 class="title" data-od-id="research-title">先听清用户怎么说，再决定做什么</h2>
+            <p class="lede">围绕新品、服务或内容主题，整理目标用户与专家视角，把模糊想法变成团队可讨论的研究结论。</p>
+            <div class="feature-list">
+              <div class="feature-item"><b>01</b><span>澄清真正要验证的问题</span></div>
+              <div class="feature-item"><b>02</b><span>组织用户访谈与专家圆桌视角</span></div>
+              <div class="feature-item"><b>03</b><span>输出可分享、可继续决策的研究报告</span></div>
+            </div>
+          </div>
+          <figure class="media-frame" data-od-id="research-image"><img class="media" src="assets/pet-research-workshop.png" alt="宠物品牌团队围绕包装样品、用户情绪板和宠物照片进行研究讨论"></figure>
+        </div>
+      </section>
+
+      <section class="slide s" data-screen-label="16 一轮调研结论" data-od-id="slide-research-output">
+        <div class="topline"><span>06 · One Round, One Report</span><span class="page-no">16 / 23</span></div>
+        <header class="slide-head">
+          <div class="eyebrow">场景示例 · 新品卖点验证</div>
+          <h2 class="title" data-od-id="research-output-title">听完一轮，留下能开会的结论</h2>
+        </header>
+        <div class="prompt-panel">
+          <div class="prompt" data-od-id="research-output-prompt"><div class="meta" style="color:oklch(1 0 0/.62);">品牌主的一句话</div><div class="quote">“这款冻干想打适口，但我们不确定顾客买的时候是不是真看这个。”</div><div class="meta" style="color:oklch(1 0 0/.62);">不需要先写成完整调研提纲</div></div>
+          <div class="deliverable-list" data-od-id="research-output-list">
+            <div class="deliverable"><b>01</b><div><strong>要听什么</strong><span>先写清这次要验证的问题，避免访谈散成闲聊。</span></div></div>
+            <div class="deliverable"><b>02</b><div><strong>用户原话</strong><span>购买场景、顾虑和原话收在一起，开会能直接引用。</span></div></div>
+            <div class="deliverable"><b>03</b><div><strong>专家判断</strong><span>行业看法放进同一份材料，不用另开一桌再解释。</span></div></div>
+            <div class="deliverable"><b>04</b><div><strong>表达边界</strong><span>哪些能说、哪些先别说，给内容和视觉接着做。</span></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide s" data-screen-label="17 佩乐窝赋能" data-od-id="slide-forge-product">
+        <div class="topline"><span>07 · PetiLoop Forge</span><span class="page-no">17 / 23</span></div>
+        <header class="slide-head"><div class="eyebrow">企业赋能</div><h2 class="title" data-od-id="forge-title">先让一段真实流程顺起来</h2><p class="lede">不从“大而全”开始。选择一件每天都要推进的工作，与真实使用者一起把方法、材料和使用习惯留下来。</p></header>
+        <div class="forge-path" data-od-id="forge-path">
+          <div class="process-step" data-od-id="forge-step-observe"><b>01</b><h3>看现状</h3><p>理解团队每天如何推进工作。</p></div>
+          <div class="process-step" data-od-id="forge-step-focus"><b>02</b><h3>选流程</h3><p>找到最值得先改善的一件事。</p></div>
+          <div class="process-step" data-od-id="forge-step-create"><b>03</b><h3>共同打磨</h3><p>让真实使用者参与每一轮。</p></div>
+          <div class="process-step" data-od-id="forge-step-adopt"><b>04</b><h3>开始使用</h3><p>把方法带进日常，而非停在演示。</p></div>
+          <div class="process-step" data-od-id="forge-step-review"><b>05</b><h3>持续复盘</h3><p>根据真实结果改进下一轮。</p></div>
+        </div>
+      </section>
+
+      <section class="slide s" data-screen-label="18 新品首发完整路径" data-od-id="slide-launch-path">
+        <div class="topline"><span>08 · One Connected Journey</span><span class="page-no">18 / 23</span></div>
+        <header class="slide-head"><div class="eyebrow">完整场景 · 宠物新品首发</div><h2 class="title" data-od-id="launch-path-title">从“要做什么”，到“已经能发”</h2><p class="lede">四条产品线围绕同一份消费者语言与同一个发布目标继续工作。</p></header>
+        <div class="process" style="margin-top:86px;" data-od-id="launch-path-grid">
+          <div class="process-step" data-od-id="launch-step-research"><b>Research</b><h3>先听用户</h3><p>验证需求、场景与表达边界。</p></div>
+          <div class="process-step" data-od-id="launch-step-ai"><b>AI</b><h3>收口策略</h3><p>把产品、渠道与经营判断对齐。</p></div>
+          <div class="process-step" data-od-id="launch-step-viral"><b>Viral</b><h3>形成内容</h3><p>拆参考、定选题、写首轮草稿。</p></div>
+          <div class="process-step" data-od-id="launch-step-artist"><b>Artist</b><h3>做成视觉</h3><p>商品图、海报与平台尺寸一起产出。</p></div>
+        </div>
+        <div style="margin-top:52px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:34px;">
+          <div class="scene-note"><div class="meta">对齐</div><strong style="display:block;margin-top:20px;">同一套消费者语言</strong></div>
+          <div class="scene-note"><div class="meta">减少</div><strong style="display:block;margin-top:20px;">跨团队反复解释</strong></div>
+          <div class="scene-note"><div class="meta">推进</div><strong style="display:block;margin-top:20px;">评审后直接进入发布</strong></div>
+        </div>
+      </section>
+
+      <section class="slide s" data-screen-label="19 四个高频场景" data-od-id="slide-scenarios">
+        <div class="topline"><span>08 · Real Business Scenarios</span><span class="page-no">19 / 23</span></div>
+        <header class="slide-head"><div class="eyebrow">先解决一件事，再把方法留下来</div><h2 class="title" data-od-id="scenarios-title">从你今天最需要推进的工作开始</h2></header>
+        <div class="scenario-list" data-od-id="scenario-list">
+          <div class="scenario-row" data-od-id="scenario-launch"><span class="type">宠物内容品牌</span><h3>新品首发内容包</h3><p>调研结论、首轮海报与小红书笔记使用同一套消费者语言。</p><span class="start">从调研开始 →</span></div>
+          <div class="scenario-row" data-od-id="scenario-opening"><span class="type">宠物门店</span><h3>新项目开业传播</h3><p>探店脚本、海报和店员常见问答一起产出，拿到就能改。</p><span class="start">从视觉开始 →</span></div>
+          <div class="scenario-row" data-od-id="scenario-weekly"><span class="type">宠物自媒体</span><h3>多账号周更</h3><p>爆文拆解、选题与配图串起来，选题会后直接进入制作。</p><span class="start">从增长开始 →</span></div>
+          <div class="scenario-row" data-od-id="scenario-channel"><span class="type">中小宠物品牌</span><h3>渠道复盘与下一步</h3><p>把后台数据和渠道问题放在一起，围绕同一份诊断做决定。</p><span class="start">从经营开始 →</span></div>
+        </div>
+      </section>
+
+
+      <section class="slide s" data-screen-label="20 价格体系" data-od-id="slide-pricing">
+        <div class="topline"><span>09 · Membership</span><span class="page-no">20 / 23</span></div>
+        <header class="slide-head">
+          <div class="eyebrow">会员价格</div>
+          <h2 class="title" data-od-id="pricing-title">一份会员，少开好几家</h2>
+          <p class="lede">问经营、做海报视频、写爆款、做调研。一份会员就搞定，不必再叠四类工具。</p>
+        </header>
+        <div class="product-stack" data-od-id="price-plans">
+          <div class="product-row" data-od-id="price-standard"><span class="ord">01</span><h3>标准</h3><span class="en">Standard</span><p><strong>¥249</strong> / 月 · 官网 ¥399<span class="price-tag">亚宠专享价格</span></p></div>
+          <div class="product-row" data-od-id="price-pro"><span class="ord">02</span><h3>进阶</h3><span class="en">Pro</span><p><strong>¥599</strong> / 月 · 官网 ¥799<span class="price-tag">亚宠专享价格</span></p></div>
+        </div>
+        <div class="price-save-band" data-od-id="price-save-band">
+          <div class="scene-note"><div class="meta">主流工具分开买</div><strong>¥642–¥12,881 / 月</strong></div>
+          <div class="scene-note"><div class="meta">PetiLoop 一份会员</div><strong>¥249–¥599 / 月</strong></div>
+          <div class="scene-note"><div class="meta">每月最多省</div><strong class="accent">¥12,282</strong></div>
+        </div>
+        <p class="price-note">每月最多省 ¥12,282，取市面上主流四类工具（问答、生图视频、爆文、调研）的公开标价上限相加为 <strong>¥12,881</strong>，再减去亚宠专享进阶价 ¥599。整理截至 2026 年 8 月，对比价来自各产品公开标价。</p>
+      </section>
+
+      <section class="slide s s-dark" data-screen-label="21 三个客户价值" data-od-id="slide-proof">
+        <div class="topline"><span>09 · The Proof</span><span class="page-no">21 / 23</span></div>
+        <header class="slide-head"><div class="eyebrow">使用者反复提到的三个词</div><h2 class="title" data-od-id="proof-title">价值，应该在工作里直接被感受到</h2></header>
+        <div class="proof-grid" data-od-id="proof-grid">
+          <article class="proof" data-od-id="proof-publish"><div class="word">能发</div><h3>产出接近真实使用</h3><p>不是停在想法或示例，而是更快拿到可以继续修改与发布的初版。</p></article>
+          <article class="proof" data-od-id="proof-one-round"><div class="word">一轮</div><h3>减少重复来回</h3><p>标题、尺寸、语气与素材在同一次任务里说明，减少跨工具返工。</p></article>
+          <article class="proof" data-od-id="proof-one-source"><div class="word">同一份</div><h3>团队围绕共同材料</h3><p>调研、内容、视觉与经营判断不再各说各话，下一步更容易达成一致。</p></article>
+        </div>
+      </section>
+
+      <section class="slide s" data-screen-label="22 真实用户声音" data-od-id="slide-voices">
+        <div class="topline"><span>09 · User Voices</span><span class="page-no">22 / 23</span></div>
+        <header class="slide-head"><div class="eyebrow">来自正在做宠物业务的使用者</div><h2 class="title" data-od-id="voices-title">不是多一套工具，是少一轮来回</h2></header>
+        <div class="voice-grid" data-od-id="voices-grid">
+          <article class="voice" data-od-id="voice-content"><q>以前做一次小红书选题，要在群里来回找参考。现在先拆同类爆文，再把结构带进成稿，下午就能给设计排版。</q><div class="who"><strong>宠物用品内容运营</strong><br>负责选题、笔记与账号复盘</div></article>
+          <article class="voice" data-od-id="voice-brand"><q>海报最怕漂亮但不能发。现在商品图、标题和尺寸一轮放进去，先拿到能发的初版，再按品牌语气细调。</q><div class="who"><strong>独立宠物品牌主理人</strong><br>一个人管产品、渠道与内容</div></article>
+          <article class="voice" data-od-id="voice-store"><q>开新服务前，我们先听一轮顾客怎么说，再让专家团看门店问题。内部讨论终于围着同一份材料走。</q><div class="who"><strong>三店连锁负责人</strong><br>负责宠物门店运营与新项目</div></article>
+        </div>
+      </section>
+
+      <section class="slide s closing" data-screen-label="23 今天先推进一步" data-od-id="slide-closing">
+        <div data-od-id="closing-content">
+          <img class="closing-logo" src="assets/petiloop-logo-black.png" alt="PetiLoop 佩乐窝">
+          <div class="eyebrow">今天先推进一步</div>
+          <h2 class="display" data-od-id="closing-title">把你现在的宠物业务问题，先问清楚</h2>
+          <p class="lede">从门店经营、商品视觉、内容增长或用户研究里的任意一件事开始。</p>
+          <a class="cta" href="https://www.petiloop.com/" data-od-id="closing-cta">打开 PetiLoop 官网</a>
+        </div>
+        <div class="closing-foot"><span>www.petiloop.com</span><span>展会品牌与产品手册 · 2026</span></div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Framework chrome — DO NOT EDIT below this line. -->
+  <nav class="deck-counter" role="navigation" aria-label="Deck navigation">
+    <button type="button" id="deck-prev" aria-label="Previous slide">‹</button>
+    <span class="deck-count"><span id="deck-cur">01</span> <span class="total">/ <span id="deck-total">01</span></span></span>
+    <button type="button" id="deck-next" aria-label="Next slide">›</button>
+  </nav>
+  <div class="deck-hint">← / → · space · R reset</div>
+
+  <script>
+    (function () {
+      var stage = document.getElementById('deck-stage');
+      var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+      var prev = document.getElementById('deck-prev');
+      var next = document.getElementById('deck-next');
+      var cur = document.getElementById('deck-cur');
+      var total = document.getElementById('deck-total');
+      var STORE = 'deck:idx:' + (location.pathname || '/');
+      var idx = 0;
+
+      // ---- scale-to-fit ---------------------------------------------------
+      // The stage is 1920×1080 and sits at .deck-shell's (0, 0) in normal
+      // block flow — the shell is intentionally NOT a grid/flex container,
+      // so the stage's natural top-left is (0, 0). We scale via transform
+      // with transform-origin:top-left, then translate by the remainder to
+      // center the scaled box in the viewport. This survives nested
+      // transforms (e.g. when the OD viewer wraps the iframe in its own
+      // scale wrapper at zoom != 100%).
+      function fit() {
+        var sw = window.innerWidth;
+        var sh = window.innerHeight;
+        var pad = 32;
+        var s = Math.min((sw - pad) / 1920, (sh - pad) / 1080);
+        if (!isFinite(s) || s <= 0) s = 1;
+        var tx = (sw - 1920 * s) / 2;
+        var ty = (sh - 1080 * s) / 2;
+        stage.style.transform = 'translate(' + tx + 'px,' + ty + 'px) scale(' + s + ')';
+      }
+
+      // ---- navigation -----------------------------------------------------
+      function pad2(n) { return (n < 10 ? '0' : '') + n; }
+      function paint() {
+        slides.forEach(function (el, i) { el.classList.toggle('active', i === idx); });
+        if (cur) cur.textContent = pad2(idx + 1);
+        if (total) total.textContent = pad2(slides.length);
+        if (prev) prev.toggleAttribute('disabled', idx <= 0);
+        if (next) next.toggleAttribute('disabled', idx >= slides.length - 1);
+      }
+      function go(i) {
+        idx = Math.max(0, Math.min(slides.length - 1, i));
+        paint();
+        try { localStorage.setItem(STORE, String(idx)); } catch (_) {}
+      }
+      function onKey(e) {
+        if (e.__odDeckKeyHandled) return;
+        var t = e.target;
+        if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
+        if (e.metaKey || e.ctrlKey || e.altKey || e.shiftKey) return;
+        if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { e.__odDeckKeyHandled = true; e.preventDefault(); go(idx + 1); }
+        else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.__odDeckKeyHandled = true; e.preventDefault(); go(idx - 1); }
+        else if (e.key === 'Home' || String(e.key).toLowerCase() === 'r') { e.__odDeckKeyHandled = true; e.preventDefault(); go(0); }
+        else if (e.key === 'End') { e.__odDeckKeyHandled = true; e.preventDefault(); go(slides.length - 1); }
+      }
+      // Capture phase + listen on both targets — inside the OD iframe,
+      // focus may be on window OR document; a single non-capture listener
+      // silently misses presses.
+      window.addEventListener('keydown', onKey, true);
+      document.addEventListener('keydown', onKey, true);
+      if (prev) prev.addEventListener('click', function () { go(idx - 1); });
+      if (next) next.addEventListener('click', function () { go(idx + 1); });
+      document.addEventListener('click', function (e) {
+        if (e.defaultPrevented) return;
+        if (e.button !== undefined && e.button !== 0) return;
+        if (e.metaKey || e.ctrlKey || e.altKey || e.shiftKey) return;
+        var t = e.target;
+        while (t && t !== document.body && t !== document.documentElement) {
+          var tag = String(t.tagName || '').toUpperCase();
+          if (
+            tag === 'A' ||
+            tag === 'BUTTON' ||
+            tag === 'INPUT' ||
+            tag === 'TEXTAREA' ||
+            tag === 'SELECT' ||
+            t.isContentEditable ||
+            t.getAttribute('role') === 'button' ||
+            t.getAttribute('role') === 'link'
+          ) return;
+          t = t.parentElement;
+        }
+        focusDeck();
+        if (e.clientX < window.innerWidth / 2) go(idx - 1);
+        else go(idx + 1);
+      }, true);
+
+      // Auto-focus body so arrow keys work without an initial click.
+      document.body.setAttribute('tabindex', '-1');
+      document.body.style.outline = 'none';
+      function focusDeck() { try { window.focus(); document.body.focus({ preventScroll: true }); } catch (_) {} }
+      document.addEventListener('mousedown', focusDeck);
+      window.addEventListener('load', focusDeck);
+
+      // Restore last position.
+      try {
+        var saved = parseInt(localStorage.getItem(STORE) || '0', 10);
+        if (!isNaN(saved) && saved >= 0 && saved < slides.length) idx = saved;
+      } catch (_) {}
+
+      window.addEventListener('resize', fit);
+      fit();
+      paint();
+      focusDeck();
+    })();
+  </script>
+
+
+
+</body></html>
