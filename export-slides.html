@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <style>
+    html, body { margin: 0; padding: 0; width: 1920px; height: 1080px; overflow: hidden; background: #111; }
+    iframe { border: 0; width: 1920px; height: 1080px; display: block; }
+  </style>
+</head>
+<body>
+  <iframe id="deck" src="petiloop-exhibition-brand-deck-v2.html"></iframe>
+  <script>
+    var n = parseInt(new URLSearchParams(location.search).get("slide") || "0", 10);
+    var f = document.getElementById("deck");
+    f.onload = function () {
+      var d = f.contentDocument;
+      var w = f.contentWindow;
+      if (!d) return;
+      function apply() {
+        var slides = d.querySelectorAll(".slide");
+        slides.forEach(function (el, i) { el.classList.toggle("active", i === n); });
+        var stage = d.getElementById("deck-stage");
+        if (stage) {
+          stage.style.transform = "none";
+          stage.style.boxShadow = "none";
+        }
+        if (w) {
+          try { w.localStorage.removeItem("deck:idx:" + (w.location.pathname || "/")); } catch (_) {}
+        }
+      }
+      apply();
+      [80, 240, 600, 1200, 2000, 3500].forEach(function (ms) {
+        setTimeout(apply, ms);
+      });
+    };
+  </script>
+</body>
+</html>
