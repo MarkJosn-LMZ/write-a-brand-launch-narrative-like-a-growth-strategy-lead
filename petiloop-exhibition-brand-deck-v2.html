@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-page-node-id="J992zARNb3XmNUNRWH1mzc"><head data-page-node-id="Yrh0rTN2UEGOyHbdC5Hbf2">
+<html lang="zh-CN" data-page-node-id="J992zARNb3XmNUNRWH1mzc"><head data-page-node-id="Yrh0rTN2UEGOyHbdC5Hbf2">
   <meta charset="utf-8" data-page-node-id="RpgEnc5H1VIQcQBQr5obCp">
   <meta name="viewport" content="width=device-width, initial-scale=1" data-page-node-id="ncAzRmmmgPyKdrg7ODnq3Z">
   <title>PetiLoop 展会品牌与产品宣传册</title>
@@ -1229,6 +1229,175 @@
     .cta:active { background: oklch(0.54 0.22 17.074); color: white; transform: translateY(0); }
     .cta:focus-visible { outline: 4px solid oklch(0.78 0.14 17.074); outline-offset: 5px; }
     .closing-foot { position: absolute; bottom: 52px; left: 104px; right: 104px; display: flex; justify-content: space-between; color: var(--muted); font: 600 16px/1 var(--mono-font); letter-spacing: .08em; text-transform: uppercase; }
+    /* Meeting revision: retain the deck's 1920×1080 canvas and brand tokens. */
+    .cover-copy { width: 1100px; top: 238px; }
+    .cover-copy .display { font-size: 100px; line-height: 1.3; }
+    .cover-copy .lede { width: 920px; font-size: 25px; letter-spacing: .015em; }
+    [data-od-id="slide-daily-pressure"] .pain-grid { grid-template-columns: repeat(3, 1fr); gap: 36px; }
+    [data-od-id="slide-daily-pressure"] .pain-visual { height: 320px; }
+    [data-od-id="slide-daily-pressure"] .pain-item p { max-width: 22em; }
+    .profile-row { grid-template-columns: 286px 1fr; }
+    .profile-row strong { font-size: 26px; }
+    .identity-v2 { margin-top: 50px; display: grid; grid-template-columns: .82fr 1.18fr; gap: 90px; height: 660px; }
+    .identity-message { display: grid; place-items: center; }
+    .identity-v2 .identity-logo { display: block; width: 340px; margin: 0; }
+    .identity-v2 .identity-line { grid-template-columns: 92px 1fr; padding: 23px 0; }
+    .identity-v2 .identity-line span { font-size: 27px; line-height: 1.55; }
+    .device-composition { position: relative; padding-top: 74px; }
+    .web-device { width: 820px; }
+    .device-label { font: 600 16px/1.6 var(--body-font); color: var(--muted); }
+    .web-device .device-label { margin-bottom: 16px; }
+    .device-screen { height: 478px; border: 10px solid var(--fg); border-radius: 18px; background: white; overflow: hidden; }
+    .device-screen img { width: 100%; height: 100%; object-fit: contain; }
+    .mobile-device { width: 244px; position: absolute; right: -4px; bottom: 6px; }
+    .mobile-device .phone-slot { height: 442px; border: 7px solid var(--fg); border-radius: 28px; background: #f7f8f9; }
+    .mobile-device .device-label { margin-top: 14px; text-align: center; font-size: 14px; }
+    .asset-slot { display: grid; place-items: center; min-width: 0; overflow: hidden; border: 1px dashed #c9cbd0; border-radius: 12px; background: #f1f2f4; text-align: center; color: var(--muted); padding: 24px; }
+    .asset-slot .slot-index { display: block; font: 500 15px/1.4 var(--body-font); letter-spacing: .08em; margin-bottom: 14px; color: #8c8e94; }
+    .asset-slot strong { display: block; font: 600 25px/1.45 var(--display-font); color: #74777e; }
+    .asset-slot p { margin-top: 12px; font-size: 17px; line-height: 1.6; color: #90939a; max-width: 23em; }
+    .asset-slot > img { width: 100%; height: 100%; min-height: 0; object-fit: contain; }
+    .asset-slot:has(> img) { padding: 0; border-style: solid; background: white; }
+    .blank-line { height: 20px; border-bottom: 1px solid #c7c9ce; }
+    [data-od-id="slide-founders"] .founder { padding-bottom: 28px; padding-top: 26px; }
+    [data-od-id="slide-founders"] .founder-photo { width: 170px; height: 170px; }
+    [data-od-id="slide-founders"] .founder h3 { margin-top: 18px; }
+    [data-od-id="slide-founders"] .founder-bio { margin-top: 22px; }
+    [data-od-id="slide-product-map"] .product-row { min-height: 150px; }
+    [data-od-id="slide-ai-product"] .split { grid-template-columns: .9fr 1.1fr; gap: 56px; height: 680px; }
+    [data-od-id="slide-ai-product"] .split-copy { justify-content: center; }
+    [data-od-id="slide-artist-product"] .workspace-shot { object-fit: contain; object-position: center; }
+    [data-od-id="slide-artist-product"] .media-frame { background: transparent; }
+    [data-od-id="slide-ai-product"] .title { font-size: 67px; line-height: 1.25; }
+    [data-od-id="slide-ai-product"] .lede { font-size: 25px; }
+    [data-od-id="slide-ai-product"] .feature-list { margin-top: 28px; }
+    [data-od-id="slide-ai-product"] .buddy-strip { margin-top: 16px; padding-top: 16px; }
+    [data-od-id="slide-ai-product"] .buddy-card { min-height: 44px; gap: 8px; padding-right: 12px; }
+    [data-od-id="slide-ai-product"] .buddy-avatar { width: 34px; height: 34px; }
+    [data-od-id="slide-ai-product"] .buddy-card strong { font-size: 16px; }
+    [data-od-id="slide-ai-product"] .buddy-card span { font-size: 14px; }
+    .ai-evidence { display: grid; grid-template-columns: 300px 1fr; gap: 28px; padding-top: 24px; padding-bottom: 16px; }
+    .ai-evidence > .phone-slot { border: 7px solid var(--fg); border-radius: 32px; }
+    .agent-enlarged { display: grid; grid-template-columns: minmax(0, 1fr) 294px; gap: 24px; align-items: center; min-width: 0; }
+    .agent-heading { display: flex; flex-direction: column; gap: 22px; align-items: center; text-align: center; }
+    .agent-heading img { width: 116px; height: 116px; object-fit: cover; border-radius: 50%; }
+    .agent-heading .meta { font-size: 14px; }
+    .agent-heading h3 { font: 700 32px/1.3 var(--display-font); margin-top: 12px; white-space: nowrap; }
+    .agent-heading p { font-size: 18px; color: var(--muted); margin-top: 8px; }
+    .agent-enlarged > .asset-slot { height: 640px; width: 294px; border-radius: 28px; }
+    .s-case .slide-head { margin-top: 62px; }
+    .s-case .title { font-size: 68px; }
+    .s-case .eyebrow { margin-bottom: 22px; }
+    .case-logo { position: absolute; top: 154px; right: 104px; width: 250px; height: 76px; object-fit: contain; }
+    .case-triptych { display: grid; grid-template-columns: repeat(3, 1fr); gap: 72px; margin: 44px 80px 0; }
+    .case-item { min-width: 0; }
+    .case-shot { height: 628px; width: 100%; display: grid; place-items: center; overflow: hidden; border: 1px solid var(--border); border-radius: 12px; background: #f0f1f3; }
+    .case-shot img { display: block; width: 100%; height: 626px; max-height: 626px; object-fit: contain; }
+    [data-od-id="slide-case-wagoo"] .case-shot, [data-od-id="slide-case-lovidovi"] .case-shot { width: 286px; margin-inline: auto; }
+    [data-od-id="slide-case-wagoo"] .case-caption, [data-od-id="slide-case-lovidovi"] .case-caption { width: 286px; margin-inline: auto; }
+    .s-case .case-caption { position: static; padding: 0; background: none; border-radius: 0; backdrop-filter: none; display: flex; align-items: baseline; gap: 20px; margin-top: 20px; font-size: 22px; }
+    .case-caption span { font: 600 16px/1 var(--mono-font); color: var(--muted); }
+    .demo-label { position: absolute; top: 34px; right: 44px; color: #777; font: 500 15px/1.4 var(--body-font); z-index: 4; }
+    [data-od-id="slide-product-effects"] .gallery-caption, [data-od-id="slide-campaign-effects"] .gallery-caption { bottom: 58px; width: 670px; padding: 28px 34px; }
+    [data-od-id="slide-product-effects"] .gallery-caption h2, [data-od-id="slide-campaign-effects"] .gallery-caption h2 { font-size: 38px; }
+    [data-od-id="slide-product-effects"] .gallery-caption p, [data-od-id="slide-campaign-effects"] .gallery-caption p { font-size: 20px; margin-top: 12px; }
+    [data-od-id="slide-product-effects"] .gallery-caption .eyebrow, [data-od-id="slide-campaign-effects"] .gallery-caption .eyebrow { margin-bottom: 16px; }
+    [data-od-id="slide-viral-product"] .split { grid-template-columns: 1.36fr .9fr; height: 610px; gap: 56px; margin-top: 46px; }
+    [data-od-id="slide-viral-product"] .title { font-size: 64px; line-height: 1.25; }
+    [data-od-id="slide-viral-product"] .lede { font-size: 24px; line-height: 1.6; margin-top: 20px; }
+    [data-od-id="slide-viral-product"] .media-frame { border: 0; background: transparent; border-radius: 0; }
+    [data-od-id="slide-viral-product"] .media { object-fit: contain; }
+    [data-od-id="slide-viral-product"] .feature-list { margin-top: 20px; }
+    [data-od-id="slide-viral-product"] .feature-item { font-size: 20px; padding: 12px 0; }
+    .channel-note { margin-top: 24px; font-size: 20px; color: var(--fg); line-height: 1.5; }
+    .channel-note span { font-size: 14px; color: var(--muted); }
+    [data-od-id="slide-viral-product"] .flow-path { margin-top: 40px; }
+    [data-od-id="slide-viral-product"] .flow-path .process-step { min-height: 160px; padding: 22px 26px; }
+    [data-od-id="slide-viral-product"] .flow-path .process-step h3 { margin-top: 20px; }
+    [data-od-id="slide-research-product"] .split { margin-top: 60px; height: 750px; grid-template-columns: .84fr 1.36fr; gap: 48px; }
+    [data-od-id="slide-research-product"] .title { font-size: 68px; line-height: 1.25; }
+    [data-od-id="slide-research-product"] .lede { font-size: 25px; line-height: 1.65; }
+    [data-od-id="slide-research-product"] .feature-item { padding: 20px 0; }
+    [data-od-id="slide-research-product"] .media-frame { align-self: center; height: auto; aspect-ratio: 16 / 9; border: 0; border-radius: 0; background: transparent; }
+    [data-od-id="slide-research-product"] .workspace-shot { object-fit: contain; object-position: center; }
+    .system-statement { margin-top: 74px; }
+    .system-statement .eyebrow { color: #a5a6ad; margin-bottom: 32px; font-size: 24px; }
+    .system-statement .display { font-size: 96px; line-height: 1.3; white-space: nowrap; }
+    .system-advantages { margin-top: 54px; border-top: 1px solid oklch(1 0 0 / .18); }
+    .system-advantage { display: grid; grid-template-columns: 72px 1fr; gap: 34px; align-items: center; min-height: 138px; border-bottom: 1px solid oklch(1 0 0 / .18); font-size: 36px; line-height: 1.55; }
+    .system-advantage > b { font: 700 36px/1.4 var(--mono-font); color: var(--accent); }
+    .system-advantage strong { font-weight: 700; }
+    [data-od-id="slide-pricing"] .slide-head { display: block; }
+    [data-od-id="slide-pricing"] .title { font-size: 70px; }
+    [data-od-id="slide-pricing"] .lede { max-width: none; }
+    .pricing-table { margin-top: 62px; border-top: 1px solid var(--border); }
+    .pricing-line { display: grid; grid-template-columns: 70px 220px 1fr 300px 360px; gap: 36px; align-items: center; min-height: 164px; border-bottom: 1px solid var(--border); }
+    .pricing-line h3 { font: 700 36px/1.35 var(--display-font); margin-bottom: 12px; }
+    .plan-scope { font-size: 25px; color: var(--muted); }
+    .pricing-line .plan-price { display: flex; align-items: baseline; gap: 14px; }
+    .pricing-line .plan-price strong { font: 700 58px/1 var(--display-font); }
+    .pricing-line .plan-price span { color: var(--muted); font-size: 20px; }
+    .plan-blank { color: #8d9097; font-size: 18px; }
+    .plan-credits { display: flex; align-items: baseline; gap: 14px; }
+    .plan-credits strong { font: 700 42px/1.2 var(--display-font); }
+    .plan-credits span { color: var(--muted); font-size: 20px; white-space: nowrap; }
+    .pricing-footer { margin-top: 34px; font-size: 20px; color: var(--muted); }
+    [data-od-id="slide-voices"] .slide-head, [data-od-id="slide-voices"] .voice-grid { position: relative; z-index: 1; }
+    [data-od-id="slide-voices"] .voice-grid { margin-top: 58px; }
+    [data-od-id="slide-voices"] .voice { min-height: 590px; background: transparent; padding: 38px 36px 30px; }
+    [data-od-id="slide-voices"] .voice q { font-size: 30px; line-height: 1.6; }
+    .voice-person { display: flex; gap: 20px; align-items: center; margin-bottom: 8px; }
+    .voice-person strong { display: block; color: var(--muted); font-size: 18px; margin-top: 6px; }
+    .voice-name { font-size: 25px; color: var(--fg); font-weight: 600; }
+    [data-od-id="slide-voices"] .avatar-slot { width: 92px; height: 92px; border-style: solid; }
+    .avatar-slot { width: 76px; height: 76px; border: 1px dashed #c7c9ce; border-radius: 50%; display: grid; place-items: center; color: #999ba1; font-size: 13px; background: #f0f1f3; flex-shrink: 0; overflow: hidden; }
+    .avatar-slot img { width: 100%; height: 100%; object-fit: cover; }
+    .voice-status { position: absolute; bottom: 62px; left: 104px; color: #989aa1; font-size: 16px; }
+    [data-od-id="slide-partners"] .partner-grid { grid-template-columns: repeat(3,1fr); gap: 18px 24px; margin-top: 44px; }
+    [data-od-id="slide-partners"] .partner-cell { height: 180px; padding: 28px 44px; }
+    [data-od-id="slide-partners"] .partner-cell img { max-height: 112px; max-width: 88%; }
+    [data-od-id="slide-partners"] img[src="assets/partner-abram-exhibitor-logo.jpg"] { width: 240px; height: 112px; object-fit: cover; object-position: center; mix-blend-mode: multiply; }
+    [data-od-id="slide-partners"] .partner-cell:last-child { background: #17171b; }
+    .traction-grid { display: grid; grid-template-columns: repeat(3,1fr); margin-top: 110px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .traction { padding: 38px 50px 48px; min-height: 470px; border-right: 1px solid var(--border); }
+    .traction:first-child { padding-left: 0; }
+    .traction:last-child { border: 0; }
+    .traction-number { display: block; margin-top: 54px; font: 700 148px/1 var(--display-font); letter-spacing: -.04em; }
+    .traction-number span { font-size: 76px; letter-spacing: 0; }
+    .traction-word { font-size: 120px; line-height: 1.23; }
+    .traction h3 { font: 700 31px/1.5 var(--display-font); margin-top: 26px; }
+    .traction p { color: var(--muted); margin-top: 16px; font-size: 19px; }
+    .traction [data-fill-slot] { color: #92959d; font-size: 17px; }
+    .bp-footnote { color: #92959d; font-size: 16px; margin-top: 32px; }
+    .acquisition-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 42px; margin-top: 66px; }
+    .acquisition-grid .asset-slot { height: 365px; }
+    [data-od-id="slide-bp-acquisition"] [data-fill-slot="salon-photo"] > img { object-fit: cover; object-position: center; }
+    [data-od-id="slide-bp-acquisition"] [data-fill-slot="industry-photo"] > img { object-fit: cover; object-position: center; }
+    [data-od-id="slide-bp-acquisition"] [data-fill-slot="official-social"] { border: 0; background: transparent; }
+    [data-od-id="slide-bp-acquisition"] [data-fill-slot="official-social"] > img { object-fit: contain; }
+    .acquisition-grid h3 { font: 700 32px/1.4 var(--display-font); margin-top: 30px; padding-top: 24px; border-top: 2px solid var(--fg); }
+    .acquisition-grid article > p { font-size: 23px; color: var(--muted); line-height: 1.7; margin-top: 18px; max-width: 20em; }
+    .capital-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 66px; margin-top: 62px; }
+    .capital-grid article { border-top: 1px solid var(--border); padding-top: 24px; }
+    .capital-no { display: block; font: 500 76px/1 var(--mono-font); color: #c1c3c9; margin-bottom: 40px; }
+    .capital-grid h3 { font: 700 38px/1.4 var(--display-font); margin-top: 24px; }
+    .capital-grid p { font-size: 25px; line-height: 1.7; color: var(--muted); margin-top: 20px; }
+    .funding-fill { margin-top: 60px; padding-top: 26px; border-top: 1px solid var(--border); color: #92959d; font-size: 18px; }
+    .funding-fill .blank-line { margin-top: 10px; max-width: 1120px; }
+    .closing .display { font-size: 108px; }
+    @media print {
+      .s-case, [data-od-id="slide-who-we-are"], [data-od-id="slide-pricing"], [data-od-id="slide-bp-progress"], [data-od-id="slide-bp-acquisition"], [data-od-id="slide-bp-capital"] { display: block !important; }
+    }
+
+
+    [data-od-id="slide-research-product"] .title { text-wrap: initial; }
+    [data-od-id="slide-campaign-effects"] .gallery-caption { width: 480px; bottom: 40px; padding: 24px 28px; }
+    [data-od-id="slide-campaign-effects"] .gallery-caption h2 { font-size: 34px; line-height: 1.35; }
+    [data-od-id="slide-campaign-effects"] .gallery-caption p { font-size: 18px; line-height: 1.55; }
+    @media print {
+      .slide.s, .slide.s:not(.active) { display: block !important; flex-direction: column !important; }
+      .slide.s.closing, .slide.s.closing:not(.active) { display: grid !important; }
+    }
   </style>
 </head>
 <body data-page-node-id="lZqs0gqsZyC1Ow9EB6mShN">
@@ -1241,26 +1410,26 @@
         <img class="cover-logo" src="assets/petiloop-logo-black.png" alt="PetiLoop 佩乐窝" data-od-id="cover-logo" data-page-node-id="2SLvhg1npAjqv5NPvDar3f">
         <div class="cover-copy" data-od-id="cover-copy" data-page-node-id="0zyNUXDvPrPTE0K6VmXIAI">
           <div class="cover-kicker" data-page-node-id="MXQlNMeYx8QZpl5am1fJjh">佩乐窝 · 宠物行业 AI 解决方案</div>
-          <h1 class="display" data-od-id="cover-title" data-page-node-id="JtTCyBnSIgm5qipEMZksMr">专为宠物行业打造的 AI 工具</h1>
-          <p class="lede" data-od-id="cover-subtitle" data-page-node-id="8I6IGtLvc6nxHubQR7X0ft">经营、视觉、内容、调研，把这些都交给佩乐窝来搞定，让你专注于业务，不用分心在工具上。</p>
+          <h1 class="display" data-od-id="cover-title" data-page-node-id="JtTCyBnSIgm5qipEMZksMr">解决宠物行业<br>商业生产力的平台</h1>
+          <p class="lede" data-od-id="cover-subtitle" data-page-node-id="8I6IGtLvc6nxHubQR7X0ft">Pet Industry Commercial Productivity Platform</p>
         </div>
         <div class="cover-foot" data-page-node-id="1opFUxz5l6WmQBz7LkJTZg"><a href="https://www.petiloop.com/" data-page-node-id="JHAuzKSD5PFqFC0kqlDUfS">www.petiloop.com</a><span data-page-node-id="JO9ngUdMhReMb61OAXJGq3">品牌与产品手册 · 2026</span></div>
       </section>
 
       <section class="slide s" data-screen-label="02 品牌主张" data-od-id="slide-brand-promise" data-page-node-id="togwib30KHVA6PVQx3v0R9">
-        <div class="topline" data-page-node-id="4DaxtHwdizTnnpd2Gu9CDH"><span data-page-node-id="F3XzOqIeRWtvRuTiz019S8">PetiLoop · Brand Promise</span><span class="page-no" data-page-node-id="M7P2ybQ3sQgmfAqInEKoan">02 / 28</span></div>
+        <div class="topline" data-page-node-id="4DaxtHwdizTnnpd2Gu9CDH"><span data-page-node-id="F3XzOqIeRWtvRuTiz019S8">PetiLoop · Brand Promise</span><span class="page-no" data-page-node-id="M7P2ybQ3sQgmfAqInEKoan">02 / 27</span></div>
         <div class="statement-grid" data-page-node-id="bXDs6tDOoOPotosijCyJ3V">
           <div class="statement-mark" aria-hidden="true" data-page-node-id="O88J5ER91gyiISosVxopVm">“</div>
           <div data-od-id="brand-promise-copy" data-page-node-id="02UX9ZZjBzxm2NEfeDJTNU">
             <div class="eyebrow" data-page-node-id="vV9PMcnwc2J49N1oESvlXM">我们相信</div>
             <h2 class="display" data-od-id="brand-promise-title" data-page-node-id="aFNzz8lE37j2qEd7HZDk2D">工欲善其事，必先利其器</h2>
-            <p class="lede" data-page-node-id="WhPnLCPw8vVDfCvhlNYDqF">把经营判断、商品视觉、内容增长、用户研究、企业部署这五个专业产品，融为一个解决方案。<br data-page-node-id="4siv1xhIqbWG33implCHK2">每个工具都为宠物行业量身打造。</p>
+            <p class="lede" data-page-node-id="WhPnLCPw8vVDfCvhlNYDqF">把四个专业产品整合在一个平台里，<br data-page-node-id="4siv1xhIqbWG33implCHK2">每个产品都为宠物行业量身打造</p>
           </div>
         </div>
       </section>
 
       <section class="slide s s-dark s-chapter" data-screen-label="03 项目介绍" data-od-id="slide-chapter-intro" data-page-node-id="OHl1JWGNCA6BxUIjGNcGk3">
-        <div class="topline" data-page-node-id="2lLu2VvfmE67zaQ4ZdDeXb"><span data-page-node-id="G8EN2MS5wkpSTohSHv2SMo">PetiLoop · Chapter 01</span><span class="page-no" data-page-node-id="GesS7S8XTmjcqNKMVeyT60">03 / 28</span></div>
+        <div class="topline" data-page-node-id="2lLu2VvfmE67zaQ4ZdDeXb"><span data-page-node-id="G8EN2MS5wkpSTohSHv2SMo">PetiLoop · Chapter 01</span><span class="page-no" data-page-node-id="GesS7S8XTmjcqNKMVeyT60">03 / 27</span></div>
         <div class="chapter-body" data-page-node-id="JXh2fdRm5PD6gXTV9IzB83">
           <div data-page-node-id="tpi4JO250I9PxX7yRvkInH">
             <div class="chapter-no" data-page-node-id="B6ZCKPdRQWFqAzyqi0FK1R">01</div>
@@ -1273,13 +1442,13 @@
             <li data-page-node-id="y8FeL0yZJvesFx4HUJy4XS"><b data-page-node-id="6AxMQTBNcusXKR1NijGdTt">03</b><span data-page-node-id="7MvV67g4OrpDWyiTOSFjGI">我们是谁</span></li>
             <li data-page-node-id="l31PxAH9tFZVxcU6CkHw3C"><b data-page-node-id="jNUuDoVUmLpDl9fQ9Z88Jv">04</b><span data-page-node-id="4rfoISQnoiA6mRFvftmKdF">公司介绍</span></li>
             <li data-page-node-id="a8NTlENnDuZ7nERKJozg9A"><b data-page-node-id="YngolY1MPkTk8GunQumPn9">05</b><span data-page-node-id="pcSR3MaNFlD3XfrfB77RMg">创始成员</span></li>
-            <li data-page-node-id="WJyZ4FVRLNTCUelUWkQ9Hd"><b data-page-node-id="FujLTQJgtOBKvUKRC9nfj7">06</b><span data-page-node-id="DOTeRMvoYIfpdOD7ftmd6s">合作伙伴</span></li>
+
           </ol>
         </div>
       </section>
 
       <section class="slide s" data-screen-label="04 真实工作压力" data-od-id="slide-daily-pressure" data-page-node-id="q0pC2wdKqKFniVVFU4yxhk">
-        <div class="topline" data-page-node-id="BU9drAzl9ETROVTyrkIrqG"><span data-page-node-id="ohmSN7rgSIFHYDX2b68RlP">01 · Why Me</span><span class="page-no" data-page-node-id="cYEMHzzjHXNbU64BBctYyf">04 / 28</span></div>
+        <div class="topline" data-page-node-id="BU9drAzl9ETROVTyrkIrqG"><span data-page-node-id="ohmSN7rgSIFHYDX2b68RlP">01 · Why Me</span><span class="page-no" data-page-node-id="cYEMHzzjHXNbU64BBctYyf">04 / 27</span></div>
         <header class="slide-head" data-page-node-id="hNBqwI8dE7zBYvzb9QrlAa">
           <div class="eyebrow" data-page-node-id="aXsp06Hlt8PhAdqsOA4oD3">佩乐窝解决了什么问题</div>
           <h2 class="title" data-od-id="daily-pressure-title" data-page-node-id="tWa1zqDu9t1s7w4hPHBprv">工具不少，真正能用的不多</h2>
@@ -1287,26 +1456,23 @@
         </header>
         <div class="pain-grid" data-od-id="daily-pressure-grid" data-page-node-id="yJ06n9FGzfJ8yhopZP6546">
           <article class="pain-item" data-od-id="pain-item-people" data-page-node-id="jK8bJc3TfVmw6EyswArAu1">
-            <figure class="pain-visual" data-od-id="pain-image-people" data-page-node-id="QHvFEGsCTGxiGo3r6vDwCp"><img src="assets/pain-handoff.png" alt="宠物品牌从业者在多个软件之间反复切换" style="object-position:50% 42%" data-page-node-id="g7qekK7HBWgA3oZAAEeD6N"></figure>
-            <div class="pain-copy" data-page-node-id="3XHj0GlFgGpDFyFS6D8Ctb"><div class="pain-title-row" data-page-node-id="K0xLpaUQA3Fn2NBghfYcby"><div class="meta num" data-page-node-id="5BFjVS2PNXkLRZeD1hyU93">01</div><h3 data-page-node-id="51FyF1PEr5ad2br5PA5uP6">工具切来切去</h3></div><p data-page-node-id="DU87a0HGouDwDu6PZKAevO">写文案一个软件，做图一个软件，查数据又一个软件，一天光切换了。</p></div>
+            <figure class="pain-visual" data-od-id="pain-image-people" data-page-node-id="QHvFEGsCTGxiGo3r6vDwCp"><img src="assets/pain-handoff-v2.png" alt="宠物品牌从业者忙着切换多台电脑和电话，同事催交物料，柴犬守在桌旁" style="object-position:50% 50%" data-page-node-id="g7qekK7HBWgA3oZAAEeD6N"></figure>
+            <div class="pain-copy" data-page-node-id="3XHj0GlFgGpDFyFS6D8Ctb"><div class="pain-title-row" data-page-node-id="K0xLpaUQA3Fn2NBghfYcby"><div class="meta num" data-page-node-id="5BFjVS2PNXkLRZeD1hyU93">01</div><h3 data-page-node-id="51FyF1PEr5ad2br5PA5uP6">工具分散，花钱还费时</h3></div><p data-page-node-id="DU87a0HGouDwDu6PZKAevO">写文案、做图、查数据各用一个软件，会员买了一堆，一天还在来回切换。</p></div>
           </article>
           <article class="pain-item" data-od-id="pain-item-expertise" data-page-node-id="kf3aS3woiKaU6oF9hNtRye">
-            <figure class="pain-visual" data-od-id="pain-image-expertise" data-page-node-id="JrjbBopM9DoyJqK2D4JIng"><img src="assets/pain-standards.png" alt="通用AI给出的答案不符合宠物行业实际" style="object-position:50% 40%" data-page-node-id="TIZqCpsTfLdlIKHSDj35nw"></figure>
+            <figure class="pain-visual" data-od-id="pain-image-expertise" data-page-node-id="JrjbBopM9DoyJqK2D4JIng"><img src="assets/pain-standards-v2.png" alt="设计人员手忙脚乱地操作复杂软件、反复修改宠物海报，猫咪坐在桌边" style="object-position:50% 50%" data-page-node-id="TIZqCpsTfLdlIKHSDj35nw"></figure>
             <div class="pain-copy" data-page-node-id="BIvG0njJrY8XOyPVPUrh8T"><div class="pain-title-row" data-page-node-id="WYWC8901SesjCFXOjd2zKC"><div class="meta num" data-page-node-id="NcbAEpQ8xH6Dy6MOOFJHQY">02</div><h3 data-page-node-id="uroDcUxkVxlWf8y3QYCuEg">专业工具上手难</h3></div><p data-page-node-id="PfN1017pPs8M4Lz4CNmO68">设计软件、数据工具功能一堆，真到做海报、拆爆款时还是不会用。</p></div>
           </article>
-          <article class="pain-item" data-od-id="pain-item-fragmentation" data-page-node-id="yX4eByqpcXIfJq1fu1SOx9">
-            <figure class="pain-visual" data-od-id="pain-image-fragmentation" data-page-node-id="YgnN7FzEvBvDemZh5t1VgB"><img src="assets/pain-tools.png" alt="多个工具订阅付费但实际用不起来" style="object-position:50% 45%" data-page-node-id="zGG8l3BVlrMrX6XI1VXpq3"></figure>
-            <div class="pain-copy" data-page-node-id="IweJZvXyJBildSmh2Ldxuj"><div class="pain-title-row" data-page-node-id="CCmvTVLpSxSB85IKEXWQhq"><div class="meta num" data-page-node-id="NX7Rxv51DV69lDpkyzZSU6">03</div><h3 data-page-node-id="iwQbuWs2cX61Dsx7YsEBJa">买了不少，用起来的没几个</h3></div><p data-page-node-id="gSpAeUc1rLf3oVusaDS0Rm">每个工具都单独付费，账号开了一堆，真正每天在用的屈指可数。</p></div>
-          </article>
+
           <article class="pain-item" data-od-id="pain-item-industry" data-page-node-id="vZUYWdo5miaWEENSOz6REu">
-            <figure class="pain-visual" data-od-id="pain-image-industry" data-page-node-id="vzcgrBTdu4E3GHyxV1ufj0"><img src="assets/pain-generic-ai.png" alt="宠物行业从业者对照品类资料检查通用AI的回答" style="object-position:48% 38%" data-page-node-id="Rdfo2CZSinBRnhuBiS3TzO"></figure>
-            <div class="pain-copy" data-page-node-id="olDWbqYvBf5rbzEEb7TAKH"><div class="pain-title-row" data-page-node-id="UR8AxHjU7psMiH3LDAdMvK"><div class="meta num" data-page-node-id="peEPERiBKOUvu1o1Cn8tPF">04</div><h3 data-page-node-id="aUyQwE5cjh2EKcPjKqAI5n">通用 AI 不懂行</h3></div><p data-page-node-id="kSC4mtAQITM3LJQYWwggON">答案看着完整，放到宠物品类、渠道和合规面前全是问题。</p></div>
+            <figure class="pain-visual" data-od-id="pain-image-industry" data-page-node-id="vzcgrBTdu4E3GHyxV1ufj0"><img src="assets/pain-generic-ai-v2.png" alt="宠物店经营者接待抱狗顾客时，匆忙对照多份资料核查通用 AI 内容" style="object-position:50% 50%" data-page-node-id="Rdfo2CZSinBRnhuBiS3TzO"></figure>
+            <div class="pain-copy" data-page-node-id="olDWbqYvBf5rbzEEb7TAKH"><div class="pain-title-row" data-page-node-id="UR8AxHjU7psMiH3LDAdMvK"><div class="meta num" data-page-node-id="peEPERiBKOUvu1o1Cn8tPF">03</div><h3 data-page-node-id="aUyQwE5cjh2EKcPjKqAI5n">通用 AI 不懂行</h3></div><p data-page-node-id="kSC4mtAQITM3LJQYWwggON">答案看着完整，放到宠物品类、渠道和合规面前全是问题。</p></div>
           </article>
         </div>
       </section>
 
       <section class="slide s" data-screen-label="05 为谁而做" data-od-id="slide-audience" data-page-node-id="KDXRSyUWrfrhF0iHwH3t45">
-        <div class="topline" data-page-node-id="XFI34eJ1ljORWfjJDAwbnN"><span data-page-node-id="MelNnJAW7sTla8QtAttDB4">01 · For Whom</span><span class="page-no" data-page-node-id="8n0NcS9xea7sNwiG3MktrI">05 / 28</span></div>
+        <div class="topline" data-page-node-id="XFI34eJ1ljORWfjJDAwbnN"><span data-page-node-id="MelNnJAW7sTla8QtAttDB4">01 · For Whom</span><span class="page-no" data-page-node-id="8n0NcS9xea7sNwiG3MktrI">05 / 27</span></div>
         <header class="slide-head" data-page-node-id="xeMBiN5mtz5PkRgaGZQIJd">
           <div class="eyebrow" data-page-node-id="5FQ6nO1H6E2kAhl0DGeDB4">为谁而做</div>
           <h2 class="title" data-od-id="audience-title" data-page-node-id="j5UqaaES4QqJMd1Ud7IhNJ">每天和宠物业务打交道的人</h2>
@@ -1314,32 +1480,24 @@
         <div class="profile-layout" data-page-node-id="NTfdehVbLt1NAnZZXmcfDx">
           <figure class="media-frame" data-od-id="audience-image" data-page-node-id="wKGox1BHx5V9MqxfTqJa7E"><img class="media" src="assets/pet-store-owner-scene.png" alt="宠物行业从业者在门店和品牌现场工作" data-page-node-id="m6NiPuXAAMBiyioBQ3TyLH"></figure>
           <div class="profile-list" data-od-id="audience-list" data-page-node-id="bd3EAa0AF2F7ZjvniGqdrG">
-            <div class="profile-row" data-od-id="audience-large" data-page-node-id="cgVYorn5g43nMgQ75r7vHC"><strong data-page-node-id="aX6q1cNuFpfQp8Mfyj5oZU">大型宠物品牌</strong><span data-page-node-id="byiRCQQYMtva9EKaRAJFCV">新品首发、全渠道种草、品牌调性统一</span></div>
-            <div class="profile-row" data-od-id="audience-sme" data-page-node-id="5dnAheHwZxCwBXmOqFTZmm"><strong data-page-node-id="tgVqhEGnB2jSAXDEIySCB0">中小型团队</strong><span data-page-node-id="ZRWuOvA9lIoNOaGAdLx7bq">人手有限，团队不大，工作量不小</span></div>
-            <div class="profile-row" data-od-id="audience-opc" data-page-node-id="DKmlp20NVbpaz1WE7cIL9H"><strong data-page-node-id="0L8G3i0ixHHPBcH7tFGpfh">宠物行业 OPC</strong><span data-page-node-id="h7hCSYlFVfzQmQh1ikBDWh">一个人身兼多职，既要速度快，还要高质量</span></div>
+            <div class="profile-row" data-od-id="audience-large" data-page-node-id="cgVYorn5g43nMgQ75r7vHC"><strong data-page-node-id="aX6q1cNuFpfQp8Mfyj5oZU">宠物主粮品牌</strong><span data-page-node-id="byiRCQQYMtva9EKaRAJFCV">新品首发、全渠道种草、品牌调性统一</span></div>
+            <div class="profile-row" data-od-id="audience-sme" data-page-node-id="5dnAheHwZxCwBXmOqFTZmm"><strong data-page-node-id="tgVqhEGnB2jSAXDEIySCB0">宠物服饰/用品公司</strong><span data-page-node-id="ZRWuOvA9lIoNOaGAdLx7bq">人手有限，团队不大，工作量不小</span></div>
+            <div class="profile-row" data-od-id="audience-opc" data-page-node-id="DKmlp20NVbpaz1WE7cIL9H"><strong data-page-node-id="0L8G3i0ixHHPBcH7tFGpfh">宠业OPC</strong><span data-page-node-id="h7hCSYlFVfzQmQh1ikBDWh">一个人身兼多职，既要速度快，还要高质量</span></div>
             <div class="profile-row" data-od-id="audience-media" data-page-node-id="tONhlffd9VXhzsiDf6AIwG"><strong data-page-node-id="DH7tDd59Yi0YA9BpuY27Y3">宠物自媒体</strong><span data-page-node-id="gNSLTIaG6ncpcdmzJq9ly2">拆爆款、定选题，把笔记持续发出去</span></div>
           </div>
         </div>
       </section>
 
-      <section class="slide s" data-screen-label="06 我们是谁" data-od-id="slide-who-we-are" data-page-node-id="um3x50iQg2z3bPckGCCvsW">
-        <div class="topline" data-page-node-id="xcXDoNbHJQ9jporksmJKPV"><span data-page-node-id="5sCxzgZBSZlEWsmhOg6wkR">01 · Who We Are</span><span class="page-no" data-page-node-id="7Ld8vCbAFPoudXEBqPLhRr">06 / 28</span></div>
-        <header class="slide-head" data-page-node-id="fsfq0FP14wfHgLx2vOxPRa">
-          <div class="eyebrow" data-page-node-id="QWJznAG5wQJGaERpH0g23O">佩乐窝系列 · PetiLoop Series</div>
-          <h2 class="title" data-od-id="who-we-are-title" data-page-node-id="D3qWzzL6XpgfG8MEKs9WjU">专为宠物行业打造的 AI 工具</h2>
-        </header>
-        <div class="identity-grid" data-page-node-id="QwM8amCGN0tAHBH8V4wq0s">
-          <div data-page-node-id="4hn1udOuKPbrexFfcY8an4"><img class="identity-logo" src="assets/petiloop-logo-black.png" alt="PetiLoop 佩乐窝品牌标识" data-od-id="identity-logo" data-page-node-id="OAV9G2RVoiJBSnuL7uvoPi"><p class="body" style="margin-top:38px;max-width:34ch;" data-page-node-id="XwGLSBrDXOH9vp8mUC0Zte">经营、视觉、内容、调研，把这些都交给佩乐窝来搞定，让你专注于业务，不再分心在工具上。</p></div>
-          <div class="identity-lines" data-od-id="identity-principles" data-page-node-id="d3zGDlKDCc9fMtnQutgCA2">
-            <div class="identity-line" data-page-node-id="5MjcjhFpIHyIfMfVOqSjQk"><b data-page-node-id="GJN5QNPazvw0iwXmKK8wcJ">使命</b><span data-page-node-id="VRAP3QjFEK6Y3FQUiKWB0e">让每个宠物行业从业者，都用上真正好用的专业 AI。</span></div>
-            <div class="identity-line" data-page-node-id="B2fSMLeRn8dcotv5y6wzzH"><b data-page-node-id="hVnjtvWqdAbUF5mYLtmgSf">愿景</b><span data-page-node-id="iaFgpLWJHL91ISSEUDH5iJ">成为宠物行业最值得信赖的 AI 工具。</span></div>
-            <div class="identity-line" data-page-node-id="9rx1fFwY95rjMuPSRtYIg0"><b data-page-node-id="YWHsrF67N4ve4A1iwRQXQY">做事标准</b><span data-page-node-id="L1IC2dhzIUbr3y30ctrAhn">工具要好用，回答要专业，功能要实在。</span></div>
-          </div>
-        </div>
-      </section>
+      <section class="slide s " data-screen-label="06 我们是谁" data-od-id="slide-who-we-are"><div class="topline"><span>01 · Who We Are</span><span class="page-no">06 / 27</span></div><header class="slide-head"><div class="eyebrow">佩乐窝系列 · PetiLoop Series</div><h2 class="title">同一个佩乐窝，适合不同的工作现场</h2></header>
+<div class="identity-v2">
+ <div class="identity-message"><img class="identity-logo" src="assets/petiloop-logo-black.png" alt="PetiLoop 佩乐窝">
+ </div>
+ <div class="device-composition"><div class="web-device"><div class="device-label">WEB · 在工作台上，完成整套任务</div><figure class="device-screen"><img src="assets/petiloop-web-overview-v2.png" alt="佩乐窝 Web 端真实界面"></figure></div>
+ <div class="mobile-device"><figure class="asset-slot phone-slot" data-od-id="platform-mobile-image" aria-label="佩乐窝移动端真实界面"><img src="assets/petiloop-mobile-overview-v2.png" alt="佩乐窝移动端首页真实截图"></figure><p class="device-label">MOBILE · 把专业能力带在身边</p></div></div>
+</div></section>
 
       <section class="slide s" data-screen-label="07 公司介绍" data-od-id="slide-company" data-page-node-id="VUSOpaEY5mNLlZ9N8smBkq">
-        <div class="topline" data-page-node-id="uDFfgG64E8cHjubWjodaS1"><span data-page-node-id="aF1wDQAQ3nxXkmZ9hdeiU8">01 · Company</span><span class="page-no" data-page-node-id="t1Jeg5GtAwukHJ1beMVUHy">07 / 28</span></div>
+        <div class="topline" data-page-node-id="uDFfgG64E8cHjubWjodaS1"><span data-page-node-id="aF1wDQAQ3nxXkmZ9hdeiU8">01 · Company</span><span class="page-no" data-page-node-id="t1Jeg5GtAwukHJ1beMVUHy">07 / 27</span></div>
         <img class="company-logo" src="assets/yuanmeet-company-logo.png" alt="YUANMEET 企业 Logo" data-page-node-id="nPuMQwOuQVLMmhh3OF7WKD">
         <header class="slide-head" data-page-node-id="BdczN4hBiTlNolrj7LZ3Ew">
           <div class="eyebrow" data-page-node-id="2jyyZN5xk8Mpxa7GfakNsK">公司介绍</div>
@@ -1390,9 +1548,8 @@
         <div class="company-source" data-page-node-id="HrvgQViEYBRXGD7byw9vNU">www.petiloop.com</div>
       </section>
 
-
       <section class="slide s" data-screen-label="08 创始成员" data-od-id="slide-founders" data-page-node-id="dgbJUwOCoNlJdc798A1KGX">
-        <div class="topline" data-page-node-id="irNgsMX1Vwzh751CZQbTCU"><span data-page-node-id="GvNygJH69lbkl4aJDsWZ9O">01 · Founding Team</span><span class="page-no" data-page-node-id="Dhmll6JkD2x65mhYH5ATIT">08 / 28</span></div>
+        <div class="topline" data-page-node-id="irNgsMX1Vwzh751CZQbTCU"><span data-page-node-id="GvNygJH69lbkl4aJDsWZ9O">01 · Founding Team</span><span class="page-no" data-page-node-id="Dhmll6JkD2x65mhYH5ATIT">08 / 27</span></div>
         <header class="slide-head" data-page-node-id="Q6kW3NDYKJCMLDPdK8Opzi">
           <div class="eyebrow" data-page-node-id="gyoDovFaDl0IAGVF4XkAiN">创始成员</div>
           <h2 class="title" data-od-id="founders-title" data-page-node-id="K025xCnPcKsy8zHCQGWBEl">不仅做产品，而且扎在行业里</h2>
@@ -1404,8 +1561,8 @@
             <h3 data-page-node-id="EjuMR9O5XTitUYv6HA6M5W">明哲</h3>
             <div class="job" data-page-node-id="NTZrV6dtPH3dqNJUzTjmYB">鸢觅科技、佩乐窝创始人 / 技术负责人</div>
             <div class="founder-bio" data-page-node-id="uIepvAi0VKqKmSYGktmGbX">
-              <p data-page-node-id="ZWCNuTNGADddL9ifI9DDyL">持续创业者，有宠物 AI 产品架构和全栈工程经验。在佩乐窝负责技术路线：多智能体引擎怎么搭，五条产品线怎么稳定跑起来。</p>
-              <p data-page-node-id="jfQnWqSi1aq9jAg61ToGtp">从架构到工程落地都亲手做，每行代码细细看，每个需求细细想。</p>
+              <p data-page-node-id="ZWCNuTNGADddL9ifI9DDyL">持续创业者，具备 AI 产品架构设计与全栈工程经验，曾主导宠物健康类应用开发。主导佩乐窝技术架构与多智能体协同引擎建设，统筹产品技术路线。</p>
+              <p data-page-node-id="jfQnWqSi1aq9jAg61ToGtp">负责 AI 能力工程化及四个产品的系统整合，覆盖从需求分析、架构设计到核心研发与持续交付的完整过程，推动宠物行业经验转化为可复用的产品能力。</p>
             </div>
           </article>
           <article class="founder" data-od-id="founder-jieshu" data-page-node-id="DZykk4l1hd66VkEmhWwcoG">
@@ -1420,58 +1577,41 @@
         </div>
       </section>
 
-      <section class="slide s s-partners" data-screen-label="09 合作伙伴" data-od-id="slide-partners" data-page-node-id="AszXsTGnKH8LceAYFWOKIU">
-        <div class="topline" data-page-node-id="JqL5r1DeT9dd33F8A6fiXT"><span data-page-node-id="2HmAYX3H7hL2Nyc0rSB68T">01 · Partners</span><span class="page-no" data-page-node-id="gIDYAuqZ5KMp8xEEPx0Sqz">09 / 28</span></div>
-        <header class="slide-head" data-page-node-id="DFe7y3FrBxXQaomIRvOu1x">
-          <div class="eyebrow" data-page-node-id="KAB8ubdgmsZXChoEEKOblU">合作伙伴</div>
-          <h2 class="title" data-od-id="partners-title" data-page-node-id="Hy2AYilslKw8KWkz973qCT">已经在和这些品牌一起做事</h2>
-          <p class="lede lede-nowrap" data-page-node-id="LyY3NsQgI6woYgP4XaOJLJ">覆盖食品、营养、医疗和生活方式。这些品牌的日常素材和内容生产，已经在佩乐窝上进行。</p>
-        </header>
-        <div class="partner-grid" data-od-id="partner-grid" data-page-node-id="i73iNBSYi0xVg44o08UJIn">
-          <figure class="partner-cell" data-page-node-id="mtZLCAXeYZ4F29wwFCasXO"><img src="assets/partner-bernard.png" alt="伯纳天纯" data-page-node-id="IDdPldIofDhItN6DsPmyIV"></figure>
-          <figure class="partner-cell" data-page-node-id="FPrZDUJKDTm873UjeGdBdC"><img src="assets/partner-jia.png" alt="吉家宠物 JIA PETCARE" data-page-node-id="KpbVXr7Ntb9vqFoj62NOBA"></figure>
-          <figure class="partner-cell" data-page-node-id="2OyBZwoV8KuVPrEu3k5X2g"><img src="assets/partner-matchwell.png" alt="MATCHWELL 益和" data-page-node-id="glRAaRqMZgTSTeRjfoAWlk"></figure>
-          <figure class="partner-cell" data-page-node-id="RaeUjvFhVCJxYHyPWtyonn"><img src="assets/partner-famsun.png" alt="FAMSUN 丰尚" data-page-node-id="iDvR10635Tllsc6c6a0CVT"></figure>
-          <figure class="partner-cell" data-page-node-id="upZSaQyBxDGikGOry44Bya"><img src="assets/partner-abram-mag.png" alt="Abram Animal Health 与 MAG" data-page-node-id="KFL7srjBGr64ITkFXTJ3oB"></figure>
-          <figure class="partner-cell" data-page-node-id="G5oMmiVFFFaBrXEXe17hvZ"><img src="assets/partner-lovidovi.png" alt="洛卫家 lovidovi" data-page-node-id="eedrXYXWAmuKxN93X3Lbcr"></figure>
-        </div>
-      </section>
-
-      <section class="slide s s-dark s-chapter" data-screen-label="10 产品矩阵" data-od-id="slide-chapter-products" data-page-node-id="YVDaXoAnu5uKAFsjuLck7f">
-        <div class="topline" data-page-node-id="MFKCbs6kjiFExO7RFc5hXJ"><span data-page-node-id="lcPQuHOuI9IcQUQppC0spd">PetiLoop · Chapter 02</span><span class="page-no" data-page-node-id="VtmmDSdhL0gbHhGgo6svJ7">10 / 28</span></div>
+      <section class="slide s s-dark s-chapter" data-screen-label="09 产品矩阵" data-od-id="slide-chapter-products" data-page-node-id="YVDaXoAnu5uKAFsjuLck7f">
+        <div class="topline" data-page-node-id="MFKCbs6kjiFExO7RFc5hXJ"><span data-page-node-id="lcPQuHOuI9IcQUQppC0spd">PetiLoop · Chapter 02</span><span class="page-no" data-page-node-id="VtmmDSdhL0gbHhGgo6svJ7">09 / 27</span></div>
         <div class="chapter-body" data-page-node-id="6YuZhkBdEVdupJm5EASPEO">
           <div data-page-node-id="sen5tABETuNqbb1gVOHykk">
             <div class="chapter-no" data-page-node-id="6Xp4J2revGxVbO1AEueous">02</div>
             <h2 class="display" data-page-node-id="NVAievno0Hohd9UCgBRStB">产品矩阵</h2>
-            <p class="lede" data-page-node-id="xkOsRK8YfI4kIntMqBVyIr">五个专业工具，融在一个平台里。不管你想解决什么问题，总有趁手的兵刃。</p>
+            <p class="lede" data-page-node-id="xkOsRK8YfI4kIntMqBVyIr">四个专业产品，融在一个平台里。不管你想解决什么问题，总有趁手的兵刃。</p>
           </div>
           <ol class="chapter-index" data-page-node-id="Pc2bAi42Q73A5nfdD4qoBU">
             <li data-page-node-id="McCbtX46bsYRP85iNFrbxu"><b data-page-node-id="efyOfKd8pNWgQZNt9PGCba">01</b><span data-page-node-id="VgPjgHM7oRD7CmFTLSxs3j">佩乐窝 AI</span></li>
             <li data-page-node-id="fEDpV1CtQh8kr9VmBp7j7T"><b data-page-node-id="CXMYfqwYmMJaGulBkuKyNr">02</b><span data-page-node-id="HwZxtHuJl2KdMXDBNCEcn2">佩乐窝 艺术家</span></li>
             <li data-page-node-id="DOy2Uq6mPOyu5rAfqV5TB8"><b data-page-node-id="14GsB2JYT2r3ZWhszqAgAC">03</b><span data-page-node-id="xqaEOiYU2XS9qiFqt2XT4v">佩乐窝 增长</span></li>
             <li data-page-node-id="ghz4tcs4dpDPgjy0FihpCz"><b data-page-node-id="MEigdPBPziyJwkMxUFMGNH">04</b><span data-page-node-id="fkBQ6JAI8PG9EaMADp8OnW">佩乐窝 调研</span></li>
-            <li data-page-node-id="ghhuRkF6EqIafSx0F8ANDR"><b data-page-node-id="HhBdOJUvulq2kaeCNNpsAv">05</b><span data-page-node-id="GkRC8ag02NqrtfpvXo5AdP">佩乐窝 赋能</span></li>
+
           </ol>
         </div>
       </section>
 
-      <section class="slide s" data-screen-label="11 五条产品线" data-od-id="slide-product-map" data-page-node-id="HtdXK4pebqUKGBPbdWgnQt">
-        <div class="topline" data-page-node-id="3TAsAAQq2YXrEF7sgHsutz"><span data-page-node-id="BcA8YVwYFsGZjCp5Ym3iiV">02 · Product Map</span><span class="page-no" data-page-node-id="8HYQ9heoogn0bPMRcqi8Sh">11 / 28</span></div>
+      <section class="slide s" data-screen-label="10 四个产品" data-od-id="slide-product-map" data-page-node-id="HtdXK4pebqUKGBPbdWgnQt">
+        <div class="topline" data-page-node-id="3TAsAAQq2YXrEF7sgHsutz"><span data-page-node-id="BcA8YVwYFsGZjCp5Ym3iiV">02 · Product Map</span><span class="page-no" data-page-node-id="8HYQ9heoogn0bPMRcqi8Sh">10 / 27</span></div>
         <header class="slide-head" data-page-node-id="FI5ESlsWGE9Sbg3cWFTVqT">
-          <div class="eyebrow" data-page-node-id="HgNHCBEAYDugia1yPw3Om6">五个产品，一套工作台</div>
+          <div class="eyebrow" data-page-node-id="HgNHCBEAYDugia1yPw3Om6">四个产品，一套工作台</div>
           <h2 class="title" data-od-id="product-map-title" data-page-node-id="9FdHg6quHmlCHtrIidiJZx">不管你卡在哪，都能解决</h2>
         </header>
         <div class="product-stack" data-od-id="product-stack" data-page-node-id="jo2aKet5cZwQHMZvAbwjUU">
           <div class="product-row" data-od-id="product-ai" data-page-node-id="EileKl58ZWU1DBnFXRM7e9"><span class="ord" data-page-node-id="rt5luWQ5Am6RF7D8NOe2Tq">01</span><h3 data-page-node-id="WBKB7QvqoIqjvgIB8cLte2">佩乐窝 AI</h3><span class="en" data-page-node-id="IF8T0n3BBZlIDDsaeQUB36">PetiLoop AI</span><p data-page-node-id="sM8dvFeH2rh2mJA2MEY0pM">行业内真正的专家都在你身边，不管遇到什么问题，都有宠物行业专家给你指路。</p></div>
-          <div class="product-row" data-od-id="product-artist" data-page-node-id="33CR8Htyvp8eErBALiSLQ5"><span class="ord" data-page-node-id="G408DJlZ9suUQn7z8ON5Jv">02</span><h3 data-page-node-id="qTFkNNIdIBSIwzsnfLTrW7">佩乐窝 艺术家</h3><span class="en" data-page-node-id="KL7IYCIFtSATJkfOzSWKkD">Artist</span><p data-page-node-id="bd9smEaTwsNfilI2vgIP4C">商品主图、详情页、活动海报、短视频封面，都变成了工作流，需要用时直接做。</p></div>
+          <div class="product-row" data-od-id="product-artist" data-page-node-id="33CR8Htyvp8eErBALiSLQ5"><span class="ord" data-page-node-id="G408DJlZ9suUQn7z8ON5Jv">02</span><h3 data-page-node-id="qTFkNNIdIBSIwzsnfLTrW7">佩乐窝 艺术家</h3><span class="en" data-page-node-id="KL7IYCIFtSATJkfOzSWKkD">Artist</span><p data-page-node-id="bd9smEaTwsNfilI2vgIP4C">商品主图、详情页、活动海报到视频制作，都变成了工作流，需要用时直接做。</p></div>
           <div class="product-row" data-od-id="product-viral" data-page-node-id="YoFEuqVMyROe3aHB9tKJmP"><span class="ord" data-page-node-id="MuQ6AYq6Eku6AlBsTDuDUk">03</span><h3 data-page-node-id="qxKnaNCBcouVxAI3HpXIF5">佩乐窝 增长</h3><span class="en" data-page-node-id="pS69sxaLBebsLIBD3MtEbp">Viral</span><p data-page-node-id="X4CtMEn07tA0ULyKw3AL4N">拆解同类爆款的选题、标题、封面结构，结合你的账号数据，直接产出下一篇。</p></div>
           <div class="product-row" data-od-id="product-research" data-page-node-id="nU5Hbgz3si5vZKBVBvB7j9"><span class="ord" data-page-node-id="5XoDGPhaebZrwgJgAwFiAv">04</span><h3 data-page-node-id="FljiROngBOL2WD9dG4H8Pr">佩乐窝 调研</h3><span class="en" data-page-node-id="3oiesijtNWyoEdH9iAyoRf">Research</span><p data-page-node-id="4KLyhHUgJdqwS03zvaWmQR">组织用户访谈和专家意见，整理成结构化报告，新品上线前先搞清楚用户要什么。</p></div>
-          <div class="product-row" data-od-id="product-forge" data-page-node-id="wbC1cv8x0AbIk1xKaD1O8q"><span class="ord" data-page-node-id="bzWCdBb1LK03IM5mPdOxsW">05</span><h3 data-page-node-id="GWdNEqKYBDXn3sDowUDgCL">佩乐窝 赋能</h3><span class="en" data-page-node-id="HWKCJJHtPANkAKEcMKI6IF">Forge</span><p data-page-node-id="U6N9iHRKkCIyBzAuIk6H9V">企业本地部署，数据不出内网，按你们现有的工作流定制，给团队做使用培训。</p></div>
+
         </div>
       </section>
 
-      <section class="slide s" data-screen-label="12 佩乐窝 AI" data-od-id="slide-ai-product" data-page-node-id="xAdHchAdRRqDBBOs4w4kbL">
-        <div class="topline" data-page-node-id="TspEuYDztEOpt1IHuGe1C4"><span data-page-node-id="MPa8PCG2gRSU9kK7WEdBCj">02 · PetiLoop AI</span><span class="page-no" data-page-node-id="URDyOEReJsTMC7UAWRseyt">12 / 28</span></div>
+      <section class="slide s" data-screen-label="11 佩乐窝 AI" data-od-id="slide-ai-product" data-page-node-id="xAdHchAdRRqDBBOs4w4kbL">
+        <div class="topline" data-page-node-id="TspEuYDztEOpt1IHuGe1C4"><span data-page-node-id="MPa8PCG2gRSU9kK7WEdBCj">02 · PetiLoop AI</span><span class="page-no" data-page-node-id="URDyOEReJsTMC7UAWRseyt">11 / 27</span></div>
         <div class="split" data-page-node-id="VucZrQmxwuWKsemCoEluPC">
           <div class="split-copy" data-page-node-id="Xr8nTT0GDJ9qXo2SZULuzE">
             <div class="product-name" data-page-node-id="wI8F46Kjs2qdxI3ZLcWi5u">佩乐窝 AI <span class="en" data-page-node-id="WxeFAHilgVra5mdaERS95T">| PetiLoop AI</span></div>
@@ -1484,7 +1624,7 @@
               <div class="feature-item" data-page-node-id="BP5VWPi4NF0m8O2DqQnBYq"><b data-page-node-id="DT5vHE96YX4A3TqCt2AjNi">03</b><span data-page-node-id="w8TlItDBF2fhadniVlW2nd">结论落到具体谁来做、先做什么</span></div>
             </div>
           </div>
-          <figure class="media-frame" data-od-id="ai-workspace-image" data-page-node-id="XGCiR2ZA91vpdVZxD65SAE"><img class="media workspace-shot" src="_E4_BA_A7_E5_93_81_E7_95_8C_E9_9D_A2PPT_E5_B1_95_E7_A4_BA_E7_B2_BE_E4_BF_AE_986x648.png" alt="佩乐窝 AI 工作台真实界面" data-page-node-id="nFzAdTBkQDtbkHAQCbMrp5"></figure>
+          <div class="ai-evidence"><figure class="asset-slot phone-slot" data-od-id="ai-mobile-image" aria-label="AI 专家移动端真实界面"><img src="assets/petiloop-ai-mobile-experts.jpeg" alt="佩乐窝 AI 专家移动端列表真实截图"></figure><div class="agent-enlarged"><div class="agent-heading"><img src="assets/buddies/french-cat-dad.png" alt="法国猫爸"><div><span class="meta">专家 Agent</span><h3>法国猫爸</h3><p>猫咪行为</p></div></div><figure class="asset-slot" data-od-id="catdad-card-image" aria-label="猫爸 Agent 点开后的真实卡片"><img src="assets/petiloop-catdad-agent-card.jpeg" alt="法国猫爸 Agent 点开后的真实卡片截图"></figure></div></div>
         </div>
         <div class="buddy-strip" data-od-id="ai-buddy-strip" data-page-node-id="6xwjNAbiDkFAwoL5bE7HOt">
           <div class="buddy-grid" data-page-node-id="WIGfCTnqHoOut09idnul7i">
@@ -1502,20 +1642,19 @@
         </div>
       </section>
 
-
-      <section class="slide s" data-screen-label="13 佩乐窝艺术家" data-od-id="slide-artist-product" data-page-node-id="d6EFnvRbC1jF7EUWs9PlFH">
-        <div class="topline" data-page-node-id="0ELRUNnADoJ6OBgUNY3Qty"><span data-page-node-id="e3gaXsGy7EKCYqJbA2PAr3">02 · PetiLoop Artist</span><span class="page-no" data-page-node-id="OHQHVBg0GBFTtk9kOJNcdb">13 / 28</span></div>
+      <section class="slide s" data-screen-label="12 佩乐窝艺术家" data-od-id="slide-artist-product" data-page-node-id="d6EFnvRbC1jF7EUWs9PlFH">
+        <div class="topline" data-page-node-id="0ELRUNnADoJ6OBgUNY3Qty"><span data-page-node-id="e3gaXsGy7EKCYqJbA2PAr3">02 · PetiLoop Artist</span><span class="page-no" data-page-node-id="OHQHVBg0GBFTtk9kOJNcdb">12 / 27</span></div>
         <div class="split reverse" data-page-node-id="1Sy1QXck624Lhwzm1mOSTn">
-          <figure class="media-frame" data-od-id="artist-workspace-image" data-page-node-id="oNIK8vw9qf5WZMnRHp9Bif"><img class="media workspace-shot" src="_E8_90_A5_E9_94_80_E7_B4_A0_E6_9D_90_E5_BA_93_E7_95_8C_E9_9D_A2PPT_E5_B1_95_E7_A4_BA_E7_B2_BE_E4_BF_AE_986x648.png" alt="佩乐窝艺术家工作台真实界面" data-page-node-id="z5DXiHv6uPd3PVmVfjgvYG"></figure>
+          <figure class="media-frame" data-od-id="artist-workspace-image" data-page-node-id="oNIK8vw9qf5WZMnRHp9Bif"><img class="media workspace-shot" src="assets/petiloop-artist-workspace-live.png" alt="佩乐窝艺术家工作台真实界面" data-page-node-id="z5DXiHv6uPd3PVmVfjgvYG"></figure>
           <div class="split-copy" data-page-node-id="CTtHtyWw9CdAQZYUidYr9z">
             <div data-page-node-id="B7Cl6hprFp5VMIb2XSowSI">
               <div class="product-name" data-page-node-id="c5xCJzfbYLE4VRu2wVmEVw">佩乐窝 艺术家 <span class="en" data-page-node-id="ccwlwEgZ7K8HWbTLJ5JyQe">| Artist</span></div>
               <h2 class="title" data-od-id="artist-title" data-page-node-id="gnRa0MVthJGV7bIh0AfOD8">从商品素材，到<br data-page-node-id="Pjnv4XQBTyU1TTqbH4vNLr">能发布的成片</h2>
-              <p class="lede" data-page-node-id="BWjUTZA47oI5ElChnOEFF9">商品图、海报、Logo设计、照片修图，一整个美工组都在为你服务。</p>
+              <p class="lede" data-page-node-id="BWjUTZA47oI5ElChnOEFF9">商品图、海报、Logo 设计、照片修图到视频制作，一整个创作团队都在为你服务。</p>
             </div>
             <div class="feature-list" data-page-node-id="07ba0d8HIPJCS6Ch2jGc49">
               <div class="feature-item" data-page-node-id="e6ND4uVeOHG49xVFuMLr2q"><b data-page-node-id="JT2PFq4P7OvnLWADHlTeXQ">01</b><span data-page-node-id="oECu8qYowDNB7VKOQ8ivwx">商品上新：主图、场景图与详情页素材</span></div>
-              <div class="feature-item" data-page-node-id="NxhG6i5XxGMDirUtD8YkAw"><b data-page-node-id="KE0B7oTp5DoaoNLEh1HpfJ">02</b><span data-page-node-id="1kREKUpAhuTEur3r8fBMHO">渠道传播：活动海报、探店画面与短视频素材</span></div>
+              <div class="feature-item" data-page-node-id="NxhG6i5XxGMDirUtD8YkAw"><b data-page-node-id="KE0B7oTp5DoaoNLEh1HpfJ">02</b><span data-page-node-id="1kREKUpAhuTEur3r8fBMHO">渠道传播：活动海报、短视频生成与制作</span></div>
               <div class="feature-item" data-page-node-id="bkZEeHZ5vtngBCR6YbbOVO"><b data-page-node-id="wpT9HCFyfEnqJXvkQAKXFB">03</b><span data-page-node-id="DzFh6CsebYS9pvHhekag9W">品牌系统：多 SKU 套系、包装方向与跨渠道物料</span></div>
             </div>
           </div>
@@ -1536,25 +1675,27 @@
         </div>
       </section>
 
+      <section class="slide s s-case" data-screen-label="13 WAGOO 客户案例" data-od-id="slide-case-wagoo"><div class="topline"><span>02 · Customer Case</span><span class="page-no">13 / 27</span></div><header class="slide-head"><div class="eyebrow">艺术家 · 品牌图文内容</div><h2 class="title">WAGOO × PetiLoop</h2></header><img class="case-logo" src="assets/user-brand-wagoo.png" alt="WAGOO"><div class="case-triptych"><article class="case-item"><figure class="case-shot"><img src="assets/wagoo-profile-latest.jpg" alt="WAGOO小红书官方主页"></figure><p class="case-caption"><span>01</span>官方主页</p></article><article class="case-item"><figure class="case-shot case-artwork" data-od-id="wagoo-image-1"><img src="assets/wagoo-feed-middle.jpg" alt="WAGOO 小红书内容展示截图一"></figure><p class="case-caption"><span>02</span>品牌内容展示</p></article><article class="case-item"><figure class="case-shot case-artwork" data-od-id="wagoo-image-2"><img src="assets/wagoo-feed-right.jpg" alt="WAGOO 小红书内容展示截图二"></figure><p class="case-caption"><span>03</span>品牌内容展示</p></article></div></section>
+
       <section class="slide s s-photo" data-screen-label="14 商品视觉成品" data-od-id="slide-product-effects" data-page-node-id="wEhKVNBlkVQ7K17wlty877">
-        <figure class="gallery-full" data-page-node-id="oNHa1NZcxyG6ZNAQAEUC7L"><img class="media" src="assets/pet-product-finished-effects.png" alt="宠物食品、营养补充剂与洗护喷雾的商业成品效果" data-page-node-id="3TfxnZstV8qYxAGgSZo2cN"></figure>
-        <div class="gallery-caption" data-od-id="product-effects-caption" data-page-node-id="dN4tJiu28pd1I329Y4u5Au"><div class="eyebrow" data-page-node-id="6jT1uhVVFa5C5EYcW0Ef21">Artist · 商品视觉</div><h2 data-page-node-id="OES0ug3vtAJi8RCsPBOpRn">主图、详情页、海报，一套素材出齐</h2><p data-page-node-id="McNeD8RRh65Ykf3GMx1NHz">主体、场景、尺寸一轮对齐，少做“好看但发不了”的图。</p></div>
-      </section>
+        <figure class="gallery-full" data-page-node-id="oNHa1NZcxyG6ZNAQAEUC7L"><img class="media" src="assets/pet-product-finished-effects-v2.png" alt="PetiLoop 品牌包装设计示例：食品、营养补充剂与洗护喷雾" data-page-node-id="3TfxnZstV8qYxAGgSZo2cN"></figure>
+        <div class="gallery-caption" data-od-id="product-effects-caption" data-page-node-id="dN4tJiu28pd1I329Y4u5Au"><div class="eyebrow" data-page-node-id="6jT1uhVVFa5C5EYcW0Ef21">Artist · 商品视觉</div><h2 data-page-node-id="OES0ug3vtAJi8RCsPBOpRn">主图、详情页、海报<br>一套素材出齐</h2><p data-page-node-id="McNeD8RRh65Ykf3GMx1NHz">主体、场景、尺寸一轮对齐，少做“好看但发不了”的图。</p></div>
+      <span class="demo-label">创意设计示例</span></section>
 
       <section class="slide s s-photo" data-screen-label="15 活动传播成品" data-od-id="slide-campaign-effects" data-page-node-id="Cp2JBtzN4FJwrQcjatUsft">
-        <figure class="gallery-full" data-page-node-id="26Sp667Ybdn1r8zVR3gvA1"><img class="media" src="assets/pet-campaign-finished-effects.png" alt="猫咪健康、宠物洗护、门店开业和人宠生活方式四组传播成品" data-page-node-id="WKZj26EUXuvY1LoY0dgxBt"></figure>
-        <div class="gallery-caption" data-od-id="campaign-effects-caption" data-page-node-id="QYapKWYszx2HbJDMNxKRJm"><div class="eyebrow" data-page-node-id="GTWuZNoVW0vPsoLA7L1wMt">Artist · 活动传播</div><h2 data-page-node-id="09yyip3LKzJsY493Jlcjhr">同一场活动，各渠道物料一次出全</h2><p data-page-node-id="yOFRumTmF25UhU1OGuEdR3">门店海报、线上 banner、短视频封面同时产出，语气不会跑偏。</p></div>
-      </section>
+        <figure class="gallery-full" data-page-node-id="26Sp667Ybdn1r8zVR3gvA1"><img class="media" src="assets/pet-campaign-finished-effects-v2.png" alt="猫咪摄影、两张完整活动海报与真实摄影风格的人宠画面设计示例" data-page-node-id="WKZj26EUXuvY1LoY0dgxBt"></figure>
+        <div class="gallery-caption" data-od-id="campaign-effects-caption" data-page-node-id="QYapKWYszx2HbJDMNxKRJm"><div class="eyebrow" data-page-node-id="GTWuZNoVW0vPsoLA7L1wMt">Artist · 活动传播</div><h2 data-page-node-id="09yyip3LKzJsY493Jlcjhr">同一场活动<br>各渠道物料一次出全</h2><p data-page-node-id="yOFRumTmF25UhU1OGuEdR3">门店海报、线上 banner、短视频封面同时产出，语气不会跑偏。</p></div>
+      <span class="demo-label">创意设计示例</span></section>
 
       <section class="slide s" data-screen-label="16 佩乐窝增长" data-od-id="slide-viral-product" data-page-node-id="lAFq2aVlu1eBtQnGmoEZMW">
-        <div class="topline" data-page-node-id="jrlxlBGDhBXcD4cbNSBYD4"><span data-page-node-id="MjROiDkGFeaqNxWIB9CI3d">02 · PetiLoop Viral</span><span class="page-no" data-page-node-id="NaETBF6BzdpnyviNmw79UO">16 / 28</span></div>
+        <div class="topline" data-page-node-id="jrlxlBGDhBXcD4cbNSBYD4"><span data-page-node-id="MjROiDkGFeaqNxWIB9CI3d">02 · PetiLoop Viral</span><span class="page-no" data-page-node-id="NaETBF6BzdpnyviNmw79UO">16 / 27</span></div>
         <div class="split reverse" data-page-node-id="HWhdLxD1gV2iB55fBfyZmd">
-          <figure class="media-frame" data-od-id="viral-hero-image" data-page-node-id="vCQqjUTs8uNMpke8vcaR4o"><img class="media" src="_E6_96_87_E6_A1_88_E5_88_9B_E4_BD_9C_E7_95_8C_E9_9D_A2_822x648__E7_B2_BE_E7_A1_AE_E5_B1_85_E4_B8_AD.png" alt="宠物内容团队复盘小红书内容与账号数据" data-page-node-id="xFofGcETvzlFMrwMdL3ISE"></figure>
+          <figure class="media-frame" data-od-id="viral-hero-image" data-page-node-id="vCQqjUTs8uNMpke8vcaR4o"><img class="media" src="assets/petiloop-viral-workspace-live.png" alt="佩乐窝增长工作台真实界面：图文创作与内容分析" data-page-node-id="xFofGcETvzlFMrwMdL3ISE"></figure>
           <div class="split-copy" data-page-node-id="IALCmbavUUyL2FMWWE9ulg">
             <div class="product-name" data-page-node-id="1m2HX51QfOCN8M9OJaCZIi">佩乐窝 增长 <span class="en" data-page-node-id="YoCk6R3Yz1Behu6qu4WeYY">| Viral</span></div>
             <h2 class="title" data-od-id="viral-title" data-page-node-id="FmC9QpSPTegp208SA50xoJ">拆完爆款，直接写下一篇</h2>
             <p class="lede" data-page-node-id="cHTpj2Sqy4EhfWyFQDmRN5">先把同类爆款抓进素材库，再进行多维度爆点分析，弄清为什么会爆，再把爆点带进新稿。</p>
-            <div class="feature-list" data-page-node-id="95lMEZTuGzn3oJdZEfJVEi">
+            <p class="channel-note">小红书 <span>已支持</span>　/　抖音、视频号 <span>规划中</span></p><div class="feature-list" data-page-node-id="95lMEZTuGzn3oJdZEfJVEi">
               <div class="feature-item" data-page-node-id="dB4qfyCTQ1oOpLAIsSAq3d"><b data-page-node-id="Gf6AiRW5riK7u92DuoGr0I">01</b><span data-page-node-id="BlPZ6UpjWBYU1PmB5essqz">告诉你选题、标题、封面与内容结构为什么有效</span></div>
               <div class="feature-item" data-page-node-id="8aEF3ENkNpvuWSLxUd29C9"><b data-page-node-id="L1eMChavH8vNDktzpQIxsd">02</b><span data-page-node-id="XIu31n303a0TkOioJBEhCv">把拆解结论带进选题清单与图文草稿</span></div>
               <div class="feature-item" data-page-node-id="LY955Vh4hM1ewgOTGZniZJ"><b data-page-node-id="WzGqaiYKL0ETn6FGlon1Nq">03</b><span data-page-node-id="lIPOoiPWHOF7zZTykfoSsE">用账号矩阵数据复盘下一阶段，而不是只看单篇表现</span></div>
@@ -1570,231 +1711,84 @@
         </div>
       </section>
 
-      <section class="slide s" data-screen-label="17 佩乐窝调研" data-od-id="slide-research-product" data-page-node-id="SxGj2xJDZpOKLK0YsRD1Op">
-        <div class="topline" data-page-node-id="miFjNKJFNGDKZGXcEi0OZJ"><span data-page-node-id="xC4eNr0NM5WBHxqGXFrFP6">02 · PetiLoop Research</span><span class="page-no" data-page-node-id="ocX3ikocqs5WfWk38NPehz">17 / 28</span></div>
+      <section class="slide s s-case" data-screen-label="17 洛卫家 客户案例" data-od-id="slide-case-lovidovi"><div class="topline"><span>02 · Customer Case</span><span class="page-no">17 / 27</span></div><header class="slide-head"><div class="eyebrow">增长 · 品牌内容与达人营销</div><h2 class="title">洛卫家 × PetiLoop</h2></header><img class="case-logo" src="assets/partner-lovidovi-official.png" alt="洛卫家"><div class="case-triptych"><article class="case-item"><figure class="case-shot"><img src="assets/lovidovi-profile-latest.jpg" alt="洛卫家小红书官方主页"></figure><p class="case-caption"><span>01</span>官方主页</p></article><article class="case-item"><figure class="case-shot" data-od-id="lovidovi-official"><img src="assets/lovidovi-official-post.jpg" alt="洛卫家官方招聘图文贴文截图"></figure><p class="case-caption"><span>02</span>官方贴文</p></article><article class="case-item"><figure class="case-shot" data-od-id="lovidovi-creator"><img src="assets/lovidovi-creator-results.jpg" alt="洛卫家小红书搜索结果与达人内容截图"></figure><p class="case-caption"><span>03</span>达人种草贴文</p></article></div></section>
+
+      <section class="slide s" data-screen-label="18 佩乐窝调研" data-od-id="slide-research-product" data-page-node-id="SxGj2xJDZpOKLK0YsRD1Op">
+        <div class="topline" data-page-node-id="miFjNKJFNGDKZGXcEi0OZJ"><span data-page-node-id="xC4eNr0NM5WBHxqGXFrFP6">02 · PetiLoop Research</span><span class="page-no" data-page-node-id="ocX3ikocqs5WfWk38NPehz">18 / 27</span></div>
         <div class="split" data-page-node-id="I7T3D6EIlcakPxny2GMdjz">
           <div class="split-copy" data-page-node-id="SyzTq2SDYO9umJHsAjHaSQ">
             <div class="product-name" data-page-node-id="8UghhzUelqmCKAXKMW9Pjw">佩乐窝 调研 <span class="en" data-page-node-id="bRKIBHCFJtjLQKxjMlygWt">| Research</span></div>
-            <h2 class="title" data-od-id="research-title" data-page-node-id="DJeLTeJ9vh1pK0zWlDfyxL">先听听用户怎么说，再决定接下来怎么做</h2>
-            <p class="lede" data-page-node-id="sZaST1WA2wveBoos3VTqK5">描述研究问题，上传参考资料，佩乐窝会判断更适合消费者、专业人士还是混合阵容，再把证据、讨论和分歧整理成结构化报告。</p>
+            <h2 class="title" data-od-id="research-title" data-page-node-id="DJeLTeJ9vh1pK0zWlDfyxL">先把问题研究清楚<br>再拿去做决策</h2>
+            <p class="lede" data-page-node-id="sZaST1WA2wveBoos3VTqK5">描述研究问题，上传参考资料，让多个 Agent 围绕证据展开讨论。先把报告做扎实，再把结论带进汇报与内容分享。</p>
             <div class="feature-list" data-page-node-id="K7KjhF1gfTY4WNLVPdFjCb">
-              <div class="feature-item" data-page-node-id="vArrP9zgbyr5mYRBsw6I7G"><b data-page-node-id="l0uk9NibKir08raaj1B9Oq">01</b><span data-page-node-id="HI52gtNbyctfB416Kz1ruj">输入研究目标，可补充最多 3 份 PDF、Word 等参考资料</span></div>
-              <div class="feature-item" data-page-node-id="y9mFDXLCKM97EKZE7B1yT2"><b data-page-node-id="USljtfXQECf9qOyFS0BBhY">02</b><span data-page-node-id="a3auYp5xuldVeNQoXl7snV">设置参与人数、访谈轮数、每轮发言人数与报告详略</span></div>
-              <div class="feature-item" data-page-node-id="lOgXu0wRPIiwdfFUYgJR1Z"><b data-page-node-id="tmSaQ7q8WhMZAcNDMkzCkw">03</b><span data-page-node-id="1TA1eCdFMGrmeduds8bPvj">问题分析、阵容确认、证据讨论、洞察提取，最后生成报告</span></div>
+              <div class="feature-item" data-page-node-id="vArrP9zgbyr5mYRBsw6I7G"><b data-page-node-id="l0uk9NibKir08raaj1B9Oq">01</b><span data-page-node-id="HI52gtNbyctfB416Kz1ruj">Agent to Agent：多 Agent 协同研究，把不同视角放在一起讨论</span></div>
+              <div class="feature-item" data-page-node-id="y9mFDXLCKM97EKZE7B1yT2"><b data-page-node-id="USljtfXQECf9qOyFS0BBhY">02</b><span data-page-node-id="a3auYp5xuldVeNQoXl7snV">有依据的报告：保留信息来源、讨论过程与分歧，让结论有据可查</span></div>
+              <div class="feature-item" data-page-node-id="lOgXu0wRPIiwdfFUYgJR1Z"><b data-page-node-id="tmSaQ7q8WhMZAcNDMkzCkw">03</b><span data-page-node-id="1TA1eCdFMGrmeduds8bPvj">多场景呈现：生成小红书 3:4 图片，以及可用于 PPT 的横版图片</span></div>
             </div>
           </div>
-          <figure class="media-frame" data-od-id="research-image" data-page-node-id="DVQPIBFvoSpVVvPTGEPcfY"><img class="media workspace-shot" src="assets/petiloop-research-live.png" alt="佩乐窝调研工作台真实界面" data-page-node-id="CQuWCcC0VXTqANu2VCFMfT"></figure>
+          <figure class="media-frame" data-od-id="research-image" data-page-node-id="DVQPIBFvoSpVVvPTGEPcfY"><img class="media workspace-shot" src="assets/petiloop-research-workspace-latest.png" alt="佩乐窝调研工作台真实界面" data-page-node-id="CQuWCcC0VXTqANu2VCFMfT"></figure>
         </div>
       </section>
 
-
-      <section class="slide s" data-screen-label="18 佩乐窝赋能" data-od-id="slide-forge-product" data-page-node-id="R48gLZFJkiynntdfZBXHaO">
-        <div class="topline" data-page-node-id="qlAzr2aKg2iiwoGRm4SIIT"><span data-page-node-id="DWZmyBkT81KxyQnQB4excB">02 · PetiLoop Forge</span><span class="page-no" data-page-node-id="bpiSuuWM37Rs0a79PCN7u2">18 / 28</span></div>
-        <header class="slide-head" data-page-node-id="ittC1Y87YRMCEdEpPX4n2G"><div class="product-name" data-page-node-id="wBE7yUgryweQIzEgfxE6YH">佩乐窝 赋能 <span class="en" data-page-node-id="wjgWUBcAWXByTiDFEhBUyy">| Forge</span></div><div class="eyebrow" data-page-node-id="J4gopmhdsFHy1UCAkBpQjm">企业本地部署</div><h2 class="title" data-od-id="forge-title" data-page-node-id="XjtauHLWEFfaIIFoBTlltA">把 AI 装进你们自己的流程</h2><p class="lede" data-page-node-id="3uCt58TPMwXBZ2uGYKnlSC">部署在企业自己的环境里，数据不出内网，流程按你们的习惯改。</p></header>
-        <div class="forge-path" data-od-id="forge-path" data-page-node-id="HlSqIxkfosxDoVY41TmSoU">
-          <div class="process-step" data-od-id="forge-step-observe" data-page-node-id="ktNVnpBKdu5FRCNEdfDz9F"><b data-page-node-id="akzOGakPGmSZsNPkf2bEQc">01</b><h3 data-page-node-id="Msr7FHEcOwguCau1KdNcL4">看现状</h3><p data-page-node-id="0JF6tlzjVJhpDuwKsig6Ky">先看清团队每天怎么干活、哪里最费时间。</p></div>
-          <div class="process-step" data-od-id="forge-step-focus" data-page-node-id="tzjRempHYisWVOzG8d0AfT"><b data-page-node-id="lMMvdHdmzk9lkCtplsZH6S">02</b><h3 data-page-node-id="A7OCZC34uznJN5zQnV5yNQ">定工作流</h3><p data-page-node-id="5eQCcLGS3l5VaSARweGkfn">挑一件最费时间的事，先改它。</p></div>
-          <div class="process-step" data-od-id="forge-step-create" data-page-node-id="m9AIkt1RS5d6vLVtxEjIQt"><b data-page-node-id="iMCLqamYqJ3w5DLTwlQCUs">03</b><h3 data-page-node-id="uo2JhJ8ELAPXBIkkVmZmG8">本地部署</h3><p data-page-node-id="T6e0h4cmRNg2uov2VI7S0R">把 AI 工具部署进企业环境，数据和权限留在内部。</p></div>
-          <div class="process-step" data-od-id="forge-step-adopt" data-page-node-id="uG9t4wiQWs0DQ3eA3hVXCg"><b data-page-node-id="uVWinH34TGD5OCpEocykds">04</b><h3 data-page-node-id="YgDAzY3vG4KRjDFfskG7yy">培训上手</h3><p data-page-node-id="BQ9lWfBYWiMX5eYPEvbop3">带团队跑通真实工作流，别停在演示阶段。</p></div>
-          <div class="process-step" data-od-id="forge-step-review" data-page-node-id="rYukcptHbRXp6kVfuzlue7"><b data-page-node-id="BXGLp6CRNjgw4HRc78OzJl">05</b><h3 data-page-node-id="H5g5elyuDE9Nqz2icMkchZ">推动转型</h3><p data-page-node-id="E0kanVvT9HAc8GBkuUx0I2">跑一段看数据：哪里好用保留，哪里不顺就调。</p></div>
-        </div>
-      </section>
-
-      <section class="slide s" data-screen-label="19 核心优势与同类对比" data-od-id="slide-comparison" data-page-node-id="uB3aHAF5AUUjbV58psGaaX">
-        <div class="topline" data-page-node-id="swm5eCKNj6dQaqjaNN3qJU"><span data-page-node-id="7N2FX8HbfBmZEaEgMNo6tn">02 · Why PetiLoop</span><span class="page-no" data-page-node-id="gx3Y8dX44yjfPQGPFc5K9n">19 / 28</span></div>
-        <header class="slide-head" data-page-node-id="4r3IGnai5jpMk5vgbeU2D8">
-          <div class="eyebrow" data-page-node-id="AoyxUSTAfFh5KA7pQIL09K">核心优势与同类工具对比</div>
-          <h2 class="title" data-page-node-id="gb07boFBpOnsOin0XRfnAh">专注宠物行业，四个产品连成一套系统</h2>
-          <p class="lede" data-page-node-id="twu6d0KgKEDrBBiAMc49Ow">同类产品多是面向所有行业的通用工具，且只解决单个环节。佩乐窝围绕宠物行业，把 4 个产品融合在同一会员和同一业务流程中。</p>
-        </header>
-        <div class="comparison-layout" data-page-node-id="5uKd0XLkXDQCWxv1e4cJ5T">
-          <div data-page-node-id="P2E3jII74LiOh8TIBUxLDX">
-            <div class="tool-compare" data-page-node-id="MSRufNo0TXMCOuBkiAMB6h">
-              <div class="tool-row" data-page-node-id="P1lqCHIS1JMYuXGNzHscYy"><h3 data-page-node-id="BMNiZ24DjF3X75AHbwUiS3">行业专注</h3><p data-page-node-id="i34v4hwRKwg2dIKUlWiiWz">同类工具：多面向所有行业，回答、模板与流程更偏通用</p><strong data-page-node-id="ZyF6vkv8QYCodfR27bbtf3">专注宠物行业</strong></div>
-              <div class="tool-row" data-page-node-id="sGWbamGeAa09cXKgcRFTo9"><h3 data-page-node-id="tLJcxS511eRHypDtvBqV6V">产品形态</h3><p data-page-node-id="jwutbS8L7GDLqOAo35cwrb">同类工具：问答、影像、内容和调研分散在不同平台</p><strong data-page-node-id="jIk1Xwy3BdEavmSjE6oBcp">4 个产品融合</strong></div>
-              <div class="tool-row" data-page-node-id="1Xc4gJU7mR5TAywn3qxeLe"><h3 data-page-node-id="E40x9XI6t3MftCF9scoM8y">会员权益</h3><p data-page-node-id="h1j7WItyx1EKBYE7QThFuf">同类工具：多平台分别注册、分别开通和分别管理</p><strong data-page-node-id="c8KEH9Xje5nTOCtgQWtYX2">一次会员全覆盖</strong></div>
-              <div class="tool-row" data-page-node-id="wqIirCTtbjTv3EMspEnSLP"><h3 data-page-node-id="jvmHKeMC4hMEBy707puEMZ">数据与流程</h3><p data-page-node-id="Rsy15Yuq9Bd1fFFjkaYWPe">同类工具：素材、洞察和任务上下文需要人工搬运衔接</p><strong data-page-node-id="GESJqEVfWNWfG506lCRfIn">产品之间互通</strong></div>
-            </div>
+      <section class="slide s s-dark" data-screen-label="19 产品体系总结" data-od-id="slide-comparison">
+        <div class="topline"><span>02 · One PetiLoop</span><span class="page-no">19 / 27</span></div>
+        <div class="system-statement">
+          <div class="eyebrow">PetiLoop 的优势</div>
+          <h2 class="display">一个行业，四个产品，一套系统</h2>
+          <div class="system-advantages">
+            <div class="system-advantage"><b>01</b><p><strong>宠物行业专注：</strong>知识、场景、模板和流程都围绕宠物业务设计</p></div>
+            <div class="system-advantage"><b>02</b><p><strong>融合性：</strong>Agent、影像、增长和调研不再是四个孤立工具</p></div>
+            <div class="system-advantage"><b>03</b><p><strong>一次会员：</strong>同一份会员权益覆盖 4 个产品，无需重复开通</p></div>
+            <div class="system-advantage"><b>04</b><p><strong>产品互通：</strong>账号、素材、上下文和结果可以跨产品延续使用</p></div>
           </div>
-          <aside class="advantage-panel" data-page-node-id="0D0PoXEjztRJJYemjMGlB3">
-            <div class="meta" data-page-node-id="YLns9I22szvRzIDP8InOCw">PetiLoop 的优势</div>
-            <strong data-page-node-id="kMNsf3wJrkGwQR3x8E87cf">一个行业，四个产品，一套系统</strong>
-            <div class="advantage-list" data-page-node-id="t0eJPsLW0WG8vtyp2GY63K">
-              <div class="advantage-item" data-page-node-id="AhpcsHCudoFE93uEB6jAFE"><b data-page-node-id="QqeiWakOmNJmvGWbGqcZA4">01</b><span data-page-node-id="cR8vyWTK4BYxMR1M02m8Yj"><strong data-page-node-id="QyPUJazbk2LJfeBY1H5WSN">宠物行业专注</strong>：知识、场景、模板和流程都围绕宠物业务设计</span></div>
-              <div class="advantage-item" data-page-node-id="CTnYfLS287ATYfctR8tn5N"><b data-page-node-id="qLGkiCvHk9HKTb5BcrEG35">02</b><span data-page-node-id="E1SJPv81Hb46Pb7HCNwo5X"><strong data-page-node-id="rr9QaAgycEePZHJzDyWuft">融合性</strong>：Agent、影像、增长和调研不再是四个孤立工具</span></div>
-              <div class="advantage-item" data-page-node-id="HTULqsBHkAiByGQ9IOty4t"><b data-page-node-id="NWPZeKA7gMgtOUxsMw3YpU">03</b><span data-page-node-id="kgQvj1ZLnfkPG1Y4zgjAj6"><strong data-page-node-id="HhQKcvholPhKg894pmU1QQ">一次会员</strong>：同一份会员权益覆盖 4 个产品，无需重复开通</span></div>
-              <div class="advantage-item" data-page-node-id="AEOwteKAYUuzgrsYbUaAWY"><b data-page-node-id="c3e3VK3A5VsaNv5IOr9VXQ">04</b><span data-page-node-id="7JsWKHNay19nD8DmHMFmgH"><strong data-page-node-id="r660PbGKWHpP0NgZi0BCJS">产品互通</strong>：账号、素材、上下文和结果可以跨产品延续使用</span></div>
-            </div>
-          </aside>
         </div>
       </section>
 
       <section class="slide s s-dark s-chapter" data-screen-label="20 价格介绍" data-od-id="slide-chapter-pricing" data-page-node-id="49lC9zGZrWhBQ6pS1YINRl">
-        <div class="topline" data-page-node-id="lBeNLQ0KkPhfW1cZJZmLF1"><span data-page-node-id="jXbG78VgzyVv2rAQ3MKIcA">PetiLoop · Chapter 03</span><span class="page-no" data-page-node-id="h2BA4LbKNOEDXUPNI8kI5v">20 / 28</span></div>
+        <div class="topline" data-page-node-id="lBeNLQ0KkPhfW1cZJZmLF1"><span data-page-node-id="jXbG78VgzyVv2rAQ3MKIcA">PetiLoop · Chapter 03</span><span class="page-no" data-page-node-id="h2BA4LbKNOEDXUPNI8kI5v">20 / 27</span></div>
         <div class="chapter-body" data-page-node-id="tt84gcj3hwNFDU93x5SMAd">
           <div data-page-node-id="LCmgFtuW35fRGd9DwQZTZ1">
             <div class="chapter-no" data-page-node-id="2McDWIXMDRhS8Z7DtBc6Pn">03</div>
             <h2 class="display" data-page-node-id="ccQxfG3Gbi2FcP0nBvljgc">价格介绍</h2>
-            <p class="lede" data-page-node-id="zR8St45B7mQKBFsMmbd1QH">两个档位，功能不锁，只按每月点数计。</p>
+            <p class="lede" data-page-node-id="zR8St45B7mQKBFsMmbd1QH">按使用场景和工作量，选择适合自己的会员。</p>
           </div>
-          <ol class="chapter-index" data-page-node-id="UPqRq8it6y0KANqMyXHnLN">
-            <li data-page-node-id="xw0nhnBkKHpntgzSTRFhSs"><b data-page-node-id="1RN36qxCULOmO1i5znEE2j">01</b><span data-page-node-id="EDnFLkvPrc534lUdj8ixiG">标准档</span></li>
-            <li data-page-node-id="oJQXgfSOyMpTC3lXy7jMtj"><b data-page-node-id="WUzbD1RzC0tqPqhD844bak">02</b><span data-page-node-id="Zi9euNdEUcZi2ttgZOF2rR">进阶档</span></li>
-          </ol>
+          <ol class="chapter-index"><li><b>01</b><span>移动版会员</span></li><li><b>02</b><span>标准档</span></li><li><b>03</b><span>进阶档</span></li></ol>
         </div>
       </section>
 
-      <section class="slide s" data-screen-label="21 价格体系" data-od-id="slide-pricing" data-page-node-id="22daWCDvDu3K2aGiQd3O1v">
-        <div class="topline" data-page-node-id="ybp75aiB4n82JGkSjDvBLo"><span data-page-node-id="mRXkmtphJQUV7XcWD8zMEh">03 · Membership</span><span class="page-no" data-page-node-id="vcpLHXt3ng94Kgppn5UzYE">21 / 28</span></div>
-        <header class="slide-head" data-page-node-id="DuvTPJcrSrFGvgguUESgWt">
-          <div data-page-node-id="ynwOYFf3LpBpcbj7x1JQUD">
-            <div class="eyebrow" data-page-node-id="H32CyKNFzB97BxNVmbuoRc">会员价格</div>
-            <h2 class="title" data-od-id="pricing-title" data-page-node-id="5x5tWzcioSHDSNRwcuqHvx">一套工作台，少买一堆工具会员</h2>
-            <p class="lede" data-page-node-id="HcjCTAb221H3FM3Tc2JgFM">标准给日常使用，进阶给高强度使用。区别只在每月点数。</p>
-          </div>
-          <div class="price-full-access" data-page-node-id="rwcOVGXC7exhYOYls5fmtY">两个档位均可接入全部产品功能，不锁功能，只按点数计。</div>
-        </header>
-        <div class="product-stack" data-od-id="price-plans" data-page-node-id="u3798RBe0CCZPcDSW2Mx5A">
-          <div class="product-row" data-od-id="price-standard" data-page-node-id="jRpIZl3gr1box1mIZ06P0a"><span class="ord" data-page-node-id="Fw28kemxeK8msRGOG931qa">01</span><h3 data-page-node-id="Djw4q6fUBe3MXW3t6JmF2A">标准</h3><span class="en" data-page-node-id="kVSN3XhUVOf9zED9MOygvr">Standard</span><div class="plan-diff" data-page-node-id="gWGSfoLV6iF2tH1GUbrgXd"><strong data-page-node-id="TsYVihIF07BBCAZb9FGEQH">40000 点 / 月</strong><span data-page-node-id="RsCfHaBMDHdSTYOq8dtDrX">支撑日常使用</span></div><div class="plan-price" data-page-node-id="VUcHH7KB2xzGe6eyP4IBBz"><p data-page-node-id="bTyDiXmx1QDdYJLycQbdYW"><strong data-page-node-id="PUyY0ox2QxXjg1VjBPjQDs">¥399</strong> / 月</p><p data-page-node-id="oajFEfVuqdfDRhB5ynXJtc"><strong data-page-node-id="WaUJwgZsyTwiErEWq8OsIQ">¥3999</strong> / 年</p><span class="price-tag" data-page-node-id="t3jB3LCnWusHHwzFhno5VU">年付省 16%</span></div></div>
-          <div class="product-row" data-od-id="price-pro" data-page-node-id="b3ToUwdeErQAxftdq4O63o"><span class="ord" data-page-node-id="kCfCWSGD5hv6YnQcPiDUpB">02</span><h3 data-page-node-id="oDEGZAhGaSaZ1Xz1TA5aij">进阶</h3><span class="en" data-page-node-id="oRNa8qawVLsZEReHvvZf2G">Pro</span><div class="plan-diff" data-page-node-id="b6rNIsiAOFqKoffMD9GDb4"><strong data-page-node-id="65kxrqq7KNXKQgiStEG37w">100000 点 / 月</strong><span data-page-node-id="bpWcljCiD3ih3d3rdySM8f">支撑高强度使用</span></div><div class="plan-price" data-page-node-id="4OnLK7tDbm6YiSQQkOjJO7"><p data-page-node-id="0ZFvYKtIqV6SR5EP4q7kwQ"><strong data-page-node-id="IdXUjgjGHI4AOrJX5Pew22">¥799</strong> / 月</p><p data-page-node-id="BbRPDB0oalt0eY0Hdkz5QY"><strong data-page-node-id="jwEAHDFCWTI2hsyI2ejn1i">¥7999</strong> / 年</p><span class="price-tag" data-page-node-id="JTNBwBBJ8DKXvE0EfkQPwn">年付省 16%</span></div></div>
-        </div>
-        <div class="price-save-band" data-od-id="price-save-band" data-page-node-id="0aOQFdYLTLXK6yMHxFhrVk">
-          <div class="scene-note" data-page-node-id="sgojY4eW3gqUIL4Nt1AeCo"><div class="meta" data-page-node-id="d9v9TrDLCEfqi5vyRrFyjq">主流工具分开买</div><strong data-page-node-id="okbgDKbMTiBr8RhYEanfyz">¥642–¥12,881 / 月</strong></div>
-          <div class="scene-note" data-page-node-id="BUbRBUrGCojN3cld8B3PX0"><div class="meta" data-page-node-id="JjViO4KHJyBCyRyNExaM7L">PetiLoop 一套工作台</div><strong data-page-node-id="NaP1H08PrUV6REflxrMyBC">¥399–¥799 / 月</strong></div>
-          <div class="scene-note" data-page-node-id="ZEHawExb1R1qo2RwGkDWP9"><div class="meta" data-page-node-id="R3k6fZ5Z9MnR2x1kBWpBVt">每月最多省</div><strong class="accent" data-page-node-id="wyQtU23HYULm9RbjVZ1WlI">¥12,082</strong></div>
-        </div>
-        <p class="price-note" data-page-node-id="Y6y9AfiaVAhc3Y56BGlnah">每月最多省 ¥12,082，取市面上主流四类工具（问答、生图视频、爆文、调研）的公开标价上限相加为 <strong data-page-node-id="ngpy53tClM2XxxOlxCJw2c">¥12,881</strong>，再减去官网进阶价 ¥799。整理截至 2026 年 8 月，对比价来自各产品公开标价。</p>
-      </section>
+      <section class="slide s " data-screen-label="21 价格体系" data-od-id="slide-pricing"><div class="topline"><span>03 · Membership</span><span class="page-no">21 / 27</span></div><header class="slide-head"><div class="eyebrow">会员价格</div><h2 class="title">一套工作台，按你的工作量来选</h2><p class="lede">移动版满足轻量需求，标准支撑日常使用，进阶适合高强度使用。</p></header><div class="pricing-table"><div class="pricing-line"><span class="meta">01</span><div><h3>移动版</h3><span class="meta">Mobile</span></div><div class="plan-scope">满足轻量移动需求</div><div class="plan-price"><strong>¥99</strong><span>/ 月</span></div><div class="plan-credits"><strong>10,000</strong><span>点 / 月</span></div></div><div class="pricing-line"><span class="meta">02</span><div><h3>标准</h3><span class="meta">Standard</span></div><div class="plan-scope">支撑日常使用</div><div class="plan-price"><strong>¥399</strong><span>/ 月</span></div><div class="plan-credits"><strong>30,000</strong><span>点 / 月</span></div></div><div class="pricing-line"><span class="meta">03</span><div><h3>进阶</h3><span class="meta">Pro</span></div><div class="plan-scope">支撑高强度使用</div><div class="plan-price"><strong>¥799</strong><span>/ 月</span></div><div class="plan-credits"><strong>100,000</strong><span>点 / 月</span></div></div></div><p class="pricing-footer">Web 标准与进阶共享四个产品能力，按点数使用。</p></section>
 
-      <section class="slide s s-dark s-chapter" data-screen-label="22 实操与案例" data-od-id="slide-chapter-scenes" data-page-node-id="8HXXWCf9mEDnXBTdbsgofU">
-        <div class="topline" data-page-node-id="0Da88Lgb6bKYXJl1iOZFVa"><span data-page-node-id="SOqko7Yk2KGOmynmRE76Eg">PetiLoop · Chapter 04</span><span class="page-no" data-page-node-id="TBDSuvHIb3DcfhSQHLslfR">22 / 28</span></div>
-        <div class="chapter-body" data-page-node-id="pQPwtqiX2Sn6OuIQ9jpLNb">
-          <div data-page-node-id="a1VjKxAiPALAhjv32rENDo">
-            <div class="chapter-no" data-page-node-id="mRqgtGjqWaDCeI4kkCVp9R">04</div>
-            <h2 class="display" data-page-node-id="wstd4WROO2sCwTyqSoTnkW">实操与案例</h2>
-            <p class="lede" data-page-node-id="uxJ0YhyX8IxwhdhGw5hujY">从真实任务开始，看输入怎么一路变成能交付的结果。</p>
-          </div>
-          <ol class="chapter-index" data-page-node-id="gLyXuDRDDPD6tZ2qXBopK0">
-            <li data-page-node-id="sKCPbn9rf6lmRThVmwyhbP"><b data-page-node-id="IX9DpMbpCl933m0DubEHVd">01</b><span data-page-node-id="wxOE499Sytphry3OIMDoJk">新品首发内容包</span></li>
-            <li data-page-node-id="w8duuZ4Y7s0vLFnBnIBHbH"><b data-page-node-id="qAdNhNkP3ZaFEUq8C1dglH">02</b><span data-page-node-id="vdsPWWyIxEep9AChTQS6i6">多账号周更</span></li>
-            <li data-page-node-id="6mhoM6VBZ394GELFPEbbQt"><b data-page-node-id="CFVZeADGDgSQTeeUddn0g6">03</b><span data-page-node-id="wNtZBCtMO1REJD54Yc6ex3">会有什么改变</span></li>
-            <li data-page-node-id="GvJMuwnAIZPBWjUZrG20Mi"><b data-page-node-id="CIvDEgr6B3DZQFLVmipuWS">04</b><span data-page-node-id="qIj2gRZNUovdlSFsSqtMKH">真实用户声音</span></li>
-            <li><b>05</b><span>正在使用的品牌</span></li>
-          </ol>
-        </div>
-      </section>
-
-      <section class="slide s" data-screen-label="23 新品首发实操" data-od-id="slide-case-launch" data-page-node-id="9OqtcNBLCOq7rd1OcsDmZE">
-        <div class="topline" data-page-node-id="a5kY4WZ8kGU1nf0bRVBGXG"><span data-page-node-id="UeCXBQgAVitlGvPvUa8ddF">04 · Live Case 01</span><span class="page-no" data-page-node-id="JpxZKt2tXJZqvNFcedhs0t">23 / 28</span></div>
-        <header class="slide-head" data-page-node-id="OjdVoXJgTtrJBl61AQOKyD">
-          <div class="eyebrow" data-page-node-id="WITNisKm0UANxC3Qw9c7cQ">实操案例 · 宠物内容品牌</div>
-          <h2 class="title" data-page-node-id="xxmx8EmJGvEFfPqfatMMN4">从一个新品想法，到一套首发内容包</h2>
-          <p class="lede" data-page-node-id="otJVgvGFmFx4HYd4TSbnZZ">先弄清用户在意什么，再让判断、视觉和内容沿用同一套消费者语言。</p>
-        </header>
-        <div class="case-layout" data-page-node-id="1R6xWf3HM3vavTgCKbkakU">
-          <figure class="case-visual" data-page-node-id="TCMDHySSmDiWgwF3yoSOQX">
-            <img src="assets/pet-content-studio.png" alt="宠物品牌团队围绕新品素材讨论首发内容" data-page-node-id="r9jtHFjqwYfImPp12UeYtl">
-            <figcaption class="case-caption" data-page-node-id="AAfgDN8BFGAgoJlHI3px1C"><strong data-page-node-id="kRlvQfkJjoWf9Bvzv5z5Lr">输入：产品资料、研究目标与参考素材</strong><p data-page-node-id="rQ5iEYI68CcEHHrF1DnqtK">不必先理解五条产品线，从今天要推进的新品任务开始。</p></figcaption>
-          </figure>
-          <div data-page-node-id="HtIfmFIb1TpK1WqbGvYMJd">
-            <div class="case-steps" data-page-node-id="VIoCPqVL4nNOxKsEgDA3ok">
-              <div class="case-step" data-page-node-id="LNF268TyeqrMh7CNEZW9Y8"><b data-page-node-id="VIH2B7eZhq9bCy5HPTeaqT">01</b><h3 data-page-node-id="JyBk3xT81EbwV2R4RaNYUP">调研</h3><p data-page-node-id="rVwL2mDDsc3WX2kAOBfSrK">描述研究问题，补充 PDF 或 Word 资料，确认参与阵容、访谈轮数与报告详略。</p></div>
-              <div class="case-step" data-page-node-id="Br2jjBkFYlNoVXnFOZBAbQ"><b data-page-node-id="PLliZZzjxqTS0m5i02ZRts">02</b><h3 data-page-node-id="ybAfqAbSVmrD23rmEtS95y">经营判断</h3><p data-page-node-id="5Oo1YbGehK7uXyiSGOKJmG">由宠物新品上市专家团梳理市场、产品、供应链与上市执行，明确先做什么。</p></div>
-              <div class="case-step" data-page-node-id="FRVUDhrW4mn39UPiCmVTwa"><b data-page-node-id="4wpDBR5etrmC1qncG8z2Y0">03</b><h3 data-page-node-id="SMAOUmsM7BjSbtHBlgw4gM">视觉制作</h3><p data-page-node-id="A4uWO3yupSMzvsRRFAYTlm">把商品、门店和参考素材交给艺术家，生成主图、海报、短视频与商品成片。</p></div>
-              <div class="case-step" data-page-node-id="lZagCHWrBR3ITJY1Yzeken"><b data-page-node-id="dsR5ntN6kuznptuVsuMDUB">04</b><h3 data-page-node-id="vmk1jFBuUYNWOyTzvRY05o">内容发布</h3><p data-page-node-id="lxbgZKNV9PdW1I35RxAcEq">把调研结论和产品卖点带进选题、标题、图文草稿与渠道物料。</p></div>
-            </div>
-            <div class="case-result" data-page-node-id="Hmjcl9QRsoJ4HTJBlUvfGN"><b data-page-node-id="JU69vUYZTKIfZwCXi5RVym">实操亮点</b><strong data-page-node-id="HSfmcs3JfTq0gcC9SWIzyM">调研报告、首轮海报和小红书笔记使用同一套消费者语言，团队评审不再各说各话。</strong></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="slide s" data-screen-label="24 多账号周更实操" data-od-id="slide-case-weekly" data-page-node-id="4ldX2wbAHmHGa5DoWEgwLC">
-        <div class="topline" data-page-node-id="za2SYVZqxOlJKdr1Pj1lzA"><span data-page-node-id="LR2KbEn1Viltyoecnsu8yI">04 · Live Case 02</span><span class="page-no" data-page-node-id="ssZVVNpLGQCsAf6s3nqGzu">24 / 28</span></div>
-        <header class="slide-head" data-page-node-id="o12TrorjEuh4wpNDPDft2S">
-          <div class="eyebrow" data-page-node-id="CBbORHFOp2PzweVenaRi9d">实操案例 · 宠物自媒体</div>
-          <h2 class="title" data-page-node-id="HWoyZAfHZOKswERogdazTe">一条对标笔记，直接进入下周内容制作</h2>
-          <p class="lede" data-page-node-id="LZrh10OUOITp83NCCzz4Ve">采集、分析、计划、生成、数据诊断都在增长工作台里完成。</p>
-        </header>
-        <div class="case-layout" data-page-node-id="bFucluj5AYknVONxyiZNvj">
-          <figure class="case-visual workspace" data-page-node-id="EvdoII5CJEXlbuWX0eQsQn">
-            <img src="_E6_96_87_E6_A1_88_E5_88_9B_E4_BD_9C_E7_95_8C_E9_9D_A2_822x648__E7_B2_BE_E7_A1_AE_E5_B1_85_E4_B8_AD.png" alt="佩乐窝增长工作台真实界面" data-page-node-id="dbSnIi1Vmp1SGSYDliOkeu">
-            <figcaption class="case-caption" data-page-node-id="XX9416U7NAtOHH3HmEJ3cm"><strong data-page-node-id="DN445GI0J7E8Da35E18LPx">输入：一条采集贴文</strong><p data-page-node-id="Ay3i3hanKQ5ROOUMwEYAXj">从素材库选择唯一参考贴文，分析结论可以直接带进生成区。</p></figcaption>
-          </figure>
-          <div data-page-node-id="KraqRTaOa30jBriCiJlgLB">
-            <div class="case-steps" data-page-node-id="abNXi5o53EPSdFYE2B6vss">
-              <div class="case-step" data-page-node-id="YrGRrHH8B00qHrs7oCOMff"><b data-page-node-id="VD3SIjofIXMBDevIN71GV3">01</b><h3 data-page-node-id="MiXcgxSw7d2HsX4hwXDtpg">采集进库</h3><p data-page-node-id="pc0PjeCPye5pjJirflW62V">通过采集扩展保存对标内容，在素材库和收藏夹中集中管理。</p></div>
-              <div class="case-step" data-page-node-id="84NoK8kO0YsIoUArW7H9me"><b data-page-node-id="yHHbvMk1URjw0eE4Ht9fi4">02</b><h3 data-page-node-id="oKhPkzss1DsW70DtYRvJam">拆开看懂</h3><p data-page-node-id="hjcMF5FE7NMT9u8iHoRU60">分析选题、标题、封面与内容结构，弄清这一篇为什么有效。</p></div>
-              <div class="case-step" data-page-node-id="B9COw1HfwM4hdVEijXKEJm"><b data-page-node-id="L4XE0MAMpo453Knc4I0jdi">03</b><h3 data-page-node-id="QYrwkxo9HKb9FTCMmhSIWT">计划并生成</h3><p data-page-node-id="gjva1dMcFFbyYKCoGfMs0n">把结论带进运营计划，继续生成选题、图文草稿和配图方向。</p></div>
-              <div class="case-step" data-page-node-id="wbesHbOs7cy1X2jSKhbbVb"><b data-page-node-id="jfITdqWxPS6pFreKbdY1jQ">04</b><h3 data-page-node-id="int7lU8wttgL59rEvop3CE">数据复盘</h3><p data-page-node-id="GlZyAFLtKOiFeGdkHkhEfo">结合账号矩阵数据做诊断和笔记检测，决定下一阶段继续做什么。</p></div>
-            </div>
-            <div class="case-result" data-page-node-id="0RbLklEvMQis0Si9U34dcW"><b data-page-node-id="JednxTPLXkykmUYdKaOgDA">实操亮点</b><strong data-page-node-id="1MGuyma2f7SoXXlANu48ZF">爆文拆解、选题和配图串在一起，选题会结束就能进入制作，不用重新整理一遍。</strong></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="slide s" data-screen-label="25 现场看见的改变" data-od-id="slide-proof" data-page-node-id="zzzT1gvARO44vk9SqJU0uv">
-        <div class="topline" data-page-node-id="Ukhb1AJ7VgYXHF2dsJLD0G"><span data-page-node-id="7fjt6fQaxZ2arVrVz2uATo">04 · After Using</span><span class="page-no" data-page-node-id="8RMkNJeH5BLl4q8UEnuOR0">25 / 28</span></div>
-        <header class="slide-head" data-page-node-id="F0dvA1cxFltJ7bheEjyqWr">
-          <div class="eyebrow" data-page-node-id="lFzW9GYJ2T6shuhkto2Tke">用了之后</div>
-          <h2 class="title" data-od-id="proof-title" data-page-node-id="2Z38cjdSENzIMMRDAROQ4n">一个佩乐窝，顶过去五个工具</h2>
-          <p class="lede" data-page-node-id="puuGbufOlVOfoBEAGwbZPi">不用再在几个软件之间切换，出来的东西专业、直接就能用。</p>
-        </header>
-        <div class="pain-grid" data-od-id="proof-grid" data-page-node-id="rb4JxslYsvXopdQUu508GJ">
-          <article class="pain-item" data-od-id="proof-publish" data-page-node-id="BFf4tVSUhR7BQWGxflL8KC">
-            <figure class="pain-visual" data-page-node-id="rOEeEIFceVG7xett290RuZ"><img src="assets/change-publish.png" alt="使用后商品视觉与包装成品" style="object-position:50% 42%" data-page-node-id="OHApGlVZbuiObt0VAfz1eW"></figure>
-            <div class="pain-copy" data-page-node-id="PibcjKaxfmPJocKWYdI0S2"><div class="pain-title-row" data-page-node-id="trBAGXtVHtE1qIVg7awOVE"><div class="meta num" data-page-node-id="crV9Y9pidpDBqVM9wM4wvb">01</div><h3 data-page-node-id="6in3dSoeRFIfHqv75Et8aG">出图就能用</h3></div><p data-page-node-id="MGOLaBTG8s1W0H3ADhIddr">商品主图、详情页、海报按平台尺寸出好，不用再找设计返工。</p></div>
-          </article>
-          <article class="pain-item" data-od-id="proof-one-round" data-page-node-id="Yg08DoC6KqGyvuGFPVucyz">
-            <figure class="pain-visual" data-page-node-id="ETmkx7JYxuNyDXpDoCIQxr"><img src="assets/change-one-round.png" alt="一套物料覆盖多个渠道" style="object-position:50% 40%" data-page-node-id="APtZlNTm0O0pcGB3D3yEdN"></figure>
-            <div class="pain-copy" data-page-node-id="1tHojFsIGB0CHfWH7DRaRW"><div class="pain-title-row" data-page-node-id="3YFDfU8wEMpJCmd5ZanDwj"><div class="meta num" data-page-node-id="SsEp8uCnqVISyZBbdBOwYx">02</div><h3 data-page-node-id="OJo3WrKKeCkxrfg6BiYZC5">一套物料多渠道用</h3></div><p data-page-node-id="7ouNOxpXXMnT27twQq6wSw">同一场活动的海报、banner、短视频封面一次出全，不用每个渠道重做。</p></div>
-          </article>
-          <article class="pain-item" data-od-id="proof-one-source" data-page-node-id="nc3g0QPHKqUAOMuO1DoSK1">
-            <figure class="pain-visual" data-page-node-id="m1fmpqK1YmoyF8l3rn1MRC"><img src="assets/change-one-source.png" alt="一个工作台完成所有工作" style="object-position:48% 42%" data-page-node-id="8K7Lt5cmVFBlwUJrbZ4QrI"></figure>
-            <div class="pain-copy" data-page-node-id="DjNC59u3xvzy4ZMr1nD3Wr"><div class="pain-title-row" data-page-node-id="j9bDRlARdGC3na2eHdkzrB"><div class="meta num" data-page-node-id="QhI67bP1AqCOHeZxKtp2GS">03</div><h3 data-page-node-id="XBjJH1OFPJKGFNpwkSbE6y">一个工具全搞定</h3></div><p data-page-node-id="CD8MpOagtUSI8HLrXRHDF8">写文案、做图、拆爆款、做调研、看数据，都在一个工作台里，不用切来切去。</p></div>
-          </article>
-        </div>
-      </section>
-
-      <section class="slide s" data-screen-label="26 真实用户声音" data-od-id="slide-voices" data-page-node-id="d66DbeRzhz5RHry4BvJVRw">
-        <div class="topline" data-page-node-id="t6R4I0KWbhIHVBo6iG6GKD"><span data-page-node-id="N61Q9nLbAhaaSw8WxQqsY2">04 · User Voices</span><span class="page-no" data-page-node-id="PlaNZBDOq9f4zsFCkys8oU">26 / 28</span></div>
-        <header class="slide-head" data-page-node-id="ePAvHSXmxCu0LwBoWy0kdy"><div class="eyebrow" data-page-node-id="O2C9p0BAkDEvYpcSV74Zyx">来自正在用佩乐窝的从业者</div><h2 class="title" data-od-id="voices-title" data-page-node-id="EKpB2sfJc281EQqlKPhmEj">五个工具融在一起，省下来的是时间</h2></header>
+      <section class="slide s" data-screen-label="22 真实用户声音" data-od-id="slide-voices" data-page-node-id="d66DbeRzhz5RHry4BvJVRw">
+        <div class="topline" data-page-node-id="t6R4I0KWbhIHVBo6iG6GKD"><span data-page-node-id="N61Q9nLbAhaaSw8WxQqsY2">04 · User Voices</span><span class="page-no" data-page-node-id="PlaNZBDOq9f4zsFCkys8oU">22 / 27</span></div>
+        <header class="slide-head" data-page-node-id="ePAvHSXmxCu0LwBoWy0kdy"><div class="eyebrow" data-page-node-id="O2C9p0BAkDEvYpcSV74Zyx">用户场景示例</div><h2 class="title" data-od-id="voices-title" data-page-node-id="EKpB2sfJc281EQqlKPhmEj">四个产品融在一起，省下来的是时间</h2></header>
         <div class="voice-grid" data-od-id="voices-grid" data-page-node-id="6LM9DRb1hAHo6ce9FCSSXA">
-          <article class="voice" data-od-id="voice-content" data-page-node-id="aAXOxhjhDGY9iGYawlF9qv"><q data-page-node-id="s1kqFPBfsBqnS1G0FlDGVj">以前做一次小红书选题，要在群里来回找参考。现在直接在增长工具里拆同类爆文，结构带进成稿，下午就能给设计排版。</q><div class="who" data-page-node-id="I7UhusI8NzImF6A3Dyqchb"><strong data-page-node-id="KwQRBoNt4MzEc5bh6QrmA5">品牌内容负责人</strong><br data-page-node-id="StMKP2sPEfRoFpB0C4qc4Y">负责选题、笔记与账号矩阵</div></article>
-          <article class="voice" data-od-id="voice-brand" data-page-node-id="Sdj3685AKZiUg9iEUjMIiL"><q data-page-node-id="DGVaOLFEwYferKEzAQOj9p">海报最怕漂亮但不能发。艺术家工具里商品图、标题和尺寸一轮放进去，先拿到能发的初版，再按品牌语气细调。</q><div class="who" data-page-node-id="PhHlj3GBLCCLtfPMtVUo3h"><strong data-page-node-id="wxCrApA6NlMbZe5wq0b6qw">品牌市场负责人</strong><br data-page-node-id="8n7vCdkuTFgeyX5gqY1QCb">负责全渠道物料与品牌视觉</div></article>
-          <article class="voice" data-od-id="voice-store" data-page-node-id="u1ozRWfqCpZnbM9q4Z5UUd"><q data-page-node-id="cle9PNG2B9WhFuiVhDoZGF">开新品前先用调研工具跑一轮用户访谈，再让 AI 专员看渠道问题。以前要花一周整理的东西，现在两天就有结论。</q><div class="who" data-page-node-id="HxhH8KgGKooemJiwjVrUqc"><strong data-page-node-id="a1f1iOpg6EquE4lgxpGyJN">品类增长负责人</strong><br data-page-node-id="be8dU7q3P8kzYBc6O4EDlB">负责新品卖点与渠道复盘</div></article>
+          <article class="voice" data-od-id="voice-content" data-page-node-id="aAXOxhjhDGY9iGYawlF9qv"><q data-page-node-id="s1kqFPBfsBqnS1G0FlDGVj">以前做小红书选题，得在群里翻来翻去找参考。现在先在增长里看同类爆文，把思路理清楚，下午就能把需求交给设计。</q><div class="who" data-page-node-id="I7UhusI8NzImF6A3Dyqchb"><div class="voice-person"><div class="avatar-slot"><img src="assets/customer-avatar-content.png" alt="林悦的漫画示意头像"></div><div><span class="voice-name">林悦</span><strong>品牌内容负责人</strong></div></div><br data-page-node-id="StMKP2sPEfRoFpB0C4qc4Y">负责选题、笔记与账号矩阵</div></article>
+          <article class="voice" data-od-id="voice-brand" data-page-node-id="Sdj3685AKZiUg9iEUjMIiL"><q data-page-node-id="DGVaOLFEwYferKEzAQOj9p">以前有些海报看着不错，真要发又觉得不合适。现在把商品图、标题和尺寸给艺术家，先出一版，再按我们品牌的风格改。</q><div class="who" data-page-node-id="PhHlj3GBLCCLtfPMtVUo3h"><div class="voice-person"><div class="avatar-slot"><img src="assets/customer-avatar-brand.png" alt="周启的漫画示意头像"></div><div><span class="voice-name">周启</span><strong>品牌市场负责人</strong></div></div><br data-page-node-id="8n7vCdkuTFgeyX5gqY1QCb">负责全渠道物料与品牌视觉</div></article>
+          <article class="voice" data-od-id="voice-store" data-page-node-id="u1ozRWfqCpZnbM9q4Z5UUd"><q data-page-node-id="cle9PNG2B9WhFuiVhDoZGF">我们上新品前，会先用调研做一轮用户访谈，再找 AI 专员看看渠道上的问题。原来要整理一周的资料，现在两天就能整理出结论。</q><div class="who" data-page-node-id="HxhH8KgGKooemJiwjVrUqc"><div class="voice-person"><div class="avatar-slot"><img src="assets/customer-avatar-growth.png" alt="陈宁的漫画示意头像"></div><div><span class="voice-name">陈宁</span><strong>品类增长负责人</strong></div></div><br data-page-node-id="be8dU7q3P8kzYBc6O4EDlB">负责新品卖点与渠道复盘</div></article>
         </div>
       </section>
 
-      <section class="slide s" data-screen-label="27 正在使用的品牌" data-od-id="slide-using-brands">
-        <div class="topline"><span>04 · Live Brands</span><span class="page-no">27 / 28</span></div>
-        <header class="slide-head">
-          <div class="eyebrow">现在已经在用佩乐窝的品牌</div>
-          <h2 class="title">账号还在持续更新</h2>
+      <section class="slide s s-partners" data-screen-label="23 合作伙伴" data-od-id="slide-partners" data-page-node-id="AszXsTGnKH8LceAYFWOKIU">
+        <div class="topline" data-page-node-id="JqL5r1DeT9dd33F8A6fiXT"><span data-page-node-id="2HmAYX3H7hL2Nyc0rSB68T">04 · Partners</span><span class="page-no" data-page-node-id="gIDYAuqZ5KMp8xEEPx0Sqz">23 / 27</span></div>
+        <header class="slide-head" data-page-node-id="DFe7y3FrBxXQaomIRvOu1x">
+          <div class="eyebrow" data-page-node-id="KAB8ubdgmsZXChoEEKOblU">合作伙伴</div>
+          <h2 class="title" data-od-id="partners-title" data-page-node-id="Hy2AYilslKw8KWkz973qCT">已经在和这些品牌一起做事</h2>
+          <p class="lede lede-nowrap" data-page-node-id="LyY3NsQgI6woYgP4XaOJLJ">我们已经与宠物行业多个品类的品牌建立了合作关系。</p>
         </header>
-        <div class="using-brand-grid">
-          <article class="using-brand" data-od-id="using-brand-smilebomblab">
-            <figure class="using-brand-logo is-dark"><img src="assets/user-brand-smilebomblab.png" alt="SmileBombLAB"></figure>
-            <p class="using-brand-name"><b>SmileBombLAB</b> · 犬运动服饰</p>
-            <figure class="using-brand-xhs"><img src="assets/user-xhs-smilebomblab.jpg" alt="SmileBombLAB 小红书主页"></figure>
-          </article>
-          <article class="using-brand" data-od-id="using-brand-wagoo">
-            <figure class="using-brand-logo"><img src="assets/user-brand-wagoo.png" alt="Wagoo 哇咕"></figure>
-            <p class="using-brand-name"><b>Wagoo 哇咕</b> · 上门宠物服务</p>
-            <figure class="using-brand-xhs"><img src="assets/user-xhs-wagoo.jpg" alt="Wagoo 小红书主页"></figure>
-          </article>
-          <article class="using-brand" data-od-id="using-brand-lovidovi">
-            <figure class="using-brand-logo is-wide"><img src="assets/partner-lovidovi.png" alt="洛卫家 lovidovi"></figure>
-            <p class="using-brand-name"><b>洛卫家</b> · 猫咪健康</p>
-            <figure class="using-brand-xhs"><img src="assets/user-xhs-lovidovi.jpg" alt="洛卫家 小红书主页"></figure>
-          </article>
-        </div>
+        <div class="partner-grid" data-od-id="partner-grid"><figure class="partner-cell"><img src="assets/partner-bernard.png" alt="伯纳天纯"></figure><figure class="partner-cell"><img src="assets/partner-jia.png" alt="吉家宠物"></figure><figure class="partner-cell"><img src="assets/partner-matchwell.png" alt="益和"></figure><figure class="partner-cell"><img src="assets/partner-famsun.png" alt="丰尚"></figure><figure class="partner-cell"><img src="assets/partner-abram-exhibitor-logo.jpg" alt="Abram Animal Health"></figure><figure class="partner-cell"><img src="assets/partner-mag-official.svg" alt="MAG"></figure><figure class="partner-cell"><img src="assets/partner-lovidovi-official.png" alt="洛卫家"></figure><figure class="partner-cell"><img src="assets/user-brand-wagoo-official.png" alt="WAGOO"></figure><figure class="partner-cell"><img src="assets/user-brand-smilebomblab.png" alt="SmileBombLAB"></figure></div>
       </section>
 
-      <section class="slide s closing" data-screen-label="28 今天先推进一步" data-od-id="slide-closing" data-page-node-id="aUlBFSbH4Y71ZNrkdm7A4o">
+      <section class="slide s " data-screen-label="24 BP 商业成果" data-od-id="slide-bp-progress"><div class="topline"><span>05 · Business Progress</span><span class="page-no">24 / 27</span></div><header class="slide-head"><div class="eyebrow">商业成果</div><h2 class="title">产品已经走进真实的业务现场</h2></header><div class="traction-grid"><article class="traction"><span class="meta">客户规模</span><strong class="traction-number">100<span>+</span></strong><h3>客户</h3></article><article class="traction"><span class="meta">产品形态</span><strong class="traction-number traction-word">多端</strong><h3>适合不同的工作场景</h3><p>Web 工作台</p></article><article class="traction"><span class="meta">客户续费</span><strong class="traction-number">60<span>%</span></strong><h3>续费率</h3></article></div></section>
+
+      <section class="slide s " data-screen-label="25 BP 获客渠道" data-od-id="slide-bp-acquisition"><div class="topline"><span>05 · Customer Acquisition</span><span class="page-no">25 / 27</span></div><header class="slide-head"><div class="eyebrow">获客渠道</div><h2 class="title">客户从行业里来，也从内容里来</h2></header><div class="acquisition-grid"><article><figure class="asset-slot " data-fill-slot="salon-photo" aria-label="线下宠物沙龙"><img src="assets/offline-pet-salon.png" alt="线下宠物沙龙活动合影"></figure><h3>线下宠物沙龙</h3><p>在现场聊清需求，把产品用进真实任务。</p></article><article><figure class="asset-slot " data-fill-slot="official-social" aria-label="自媒体账号与内容投放"><img src="assets/official-social-collage.png" alt="佩乐窝小红书、抖音和视频号账号截图拼接图"></figure><h3>自媒体账号与内容投放</h3><p>小红书 / 抖音 / 视频号</p></article><article><figure class="asset-slot " data-fill-slot="industry-photo" aria-label="业内渠道推荐"><img src="assets/industry-channel-event.jpg" alt="亚宠CEO思享会行业圆桌交流现场"></figure><h3>业内渠道推荐</h3><p>从行业合作与交流中，触达更多从业者。</p></article></div></section>
+
+      <section class="slide s " data-screen-label="26 BP 融资需求" data-od-id="slide-bp-capital"><div class="topline"><span>05 · Growth Capital</span><span class="page-no">26 / 27</span></div><header class="slide-head"><div class="eyebrow">融资需求</div><h2 class="title">我们需要 VC，让下一步走得更快</h2><p class="lede">把产品已经解决的问题，带到更多客户面前。</p></header><div class="capital-grid"><article><span class="capital-no">01</span><div class="meta">Go-to-Market</div><h3>放大获客速度</h3><p>扩大行业触达，把内容、活动和渠道沉淀成持续获客的能力。</p></article><article><span class="capital-no">02</span><div class="meta">Customer Success</div><h3>把客户服务跟上</h3><p>及时响应 B 端需求，做好上手支持和持续服务，让客户用得顺、愿意续费。</p></article><article><span class="capital-no">03</span><div class="meta">Product & Engineering</div><h3>加快产品迭代</h3><p>增强研发团队，把需求更快做进产品，持续完善平台能力和交付稳定性。</p></article></div></section>
+
+      <section class="slide s closing" data-screen-label="27 今天先推进一步" data-od-id="slide-closing" data-page-node-id="aUlBFSbH4Y71ZNrkdm7A4o">
         <div data-od-id="closing-content" data-page-node-id="lZnrIhrZ2XnSXtQx0CCSbX">
           <img class="closing-logo" src="assets/petiloop-logo-black.png" alt="PetiLoop 佩乐窝" data-page-node-id="mfqjXjWimdAzbHMkM1idCJ">
-          <h2 class="display" data-od-id="closing-title" data-page-node-id="GqdjskAZUJ3XjoNF3WITUG">五个专业 AI 工具<br data-page-node-id="CiJ4TcQMZXHUlmzO7IFtRO">现在就试试</h2>
-          <p class="lede" data-page-node-id="aGCfdWF4BcDELkPpLR2oCl">经营判断、商品视觉、内容增长、用户研究、企业赋能，先解决一个真问题。</p>
+          <h2 class="display" data-od-id="closing-title" data-page-node-id="GqdjskAZUJ3XjoNF3WITUG">一个行业，四个产品<br>一套系统</h2>
+          <p class="lede" data-page-node-id="aGCfdWF4BcDELkPpLR2oCl">经营判断、商品视觉、内容增长、用户研究，先解决一个真问题。</p>
           <a class="cta" href="https://www.petiloop.com/" data-od-id="closing-cta" data-page-node-id="zoxDaODm9YCGTVZsVxrWwm">打开 PetiLoop 官网</a>
         </div>
         <div class="closing-foot" data-page-node-id="a3rY8kzaYJDhrR4yLBD6r5"><span data-page-node-id="UMMCPksKqNvNWpUFSiGJbS">www.petiloop.com</span><span data-page-node-id="WVJJXzB3MpUDZurTMJ3VKz">品牌与产品手册 · 2026</span></div>
