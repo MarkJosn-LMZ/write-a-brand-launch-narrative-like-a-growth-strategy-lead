@@ -1,0 +1,15 @@
+Use case: precise-object-edit.
+Edit this finished PetiLoop poster by adding an elegant contact/scan call-to-action section at the BOTTOM LEFT. Keep the current design, type hierarchy, logo and photo of three professionals and FIVE pets extremely faithful. The first Chinese headline "赋能宠物行业" must remain light/regular weight; "商业生产力" must remain very bold; retain the longer coral-red accent stroke and exact English "AI for pet · AI for Business".
+
+Extend the portrait canvas DOWNWARD to make room for a taller near-white footer/contact section. Target canvas 1024x1792 pixels or same aspect ratio. Do not cut off any pets, their paws, people or headline. Keep the original content above the footer intact and in the same proportions, with the bottom edge of the existing photograph around y=1443, then a clean near-white contact/footer section down to y=1792. The source poster's small existing footer is replaced by this newly spacious editorial footer.
+
+In this NEW bottom footer:
+- Reserve a completely blank PURE WHITE square 220x220 pixels at x=64, y=1470. It is the insertion area for the user's original QR code, which will be pasted in afterwards, so DO NOT GENERATE A QR CODE, DO NOT PLACE LETTERS, ICONS OR PATTERNS inside this square. It can have an extremely subtle fine light-gray square outline. Keep the entire square pure white and unobstructed.
+- To the RIGHT of that reserved square, at about x=324, place a short coral-red horizontal accent stroke above a prominent dark Chinese invitation heading, exact text "扫码添加微信".
+- Beneath it, smaller dark-gray Chinese explanatory copy in two lines, exact text "了解宠物行业" and "AI 解决方案".
+- Leave generous breathing room and align this text block vertically near the QR square center. It should look like refined editorial typography, not a button or UI card.
+- At the very bottom, a thin light-gray horizontal rule from x64 to x960, with the same small footer website "WWW.PETILOOP.COM" aligned left and "宠物行业 AI 解决方案" aligned right underneath.
+The blank QR insertion square is at the lower LEFT, in a dedicated white area, not floating on the animals. Keep this refined and cohesive with the original black/white and coral-red presentation branding.
+No new slogans, no dates, no fabricated claims, no QR-like pattern, no extra people or animals, no changing existing typography. Output the full flat finished poster with only the QR insertion area intentionally blank.
+
+Final production: original user-supplied QR screenshot is embedded deterministically with Sharp, with a white quiet zone; the QR pattern is not generated. Output 1896x3318 PNG. Typography and footer layout generated with built-in image generation.
